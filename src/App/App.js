@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import Button from './Components/Button/index.js';
+import Button from './Components/Button/Button.js';
+import CardContainer from './Components/CardContainer/CardContainer.js';
 
 class App extends Component {
   constructor() {
     super(); 
     this.state = {
-      crawlData: []
+      crawlData: [],
+      people: [],
+      planets: []
     };
   }
   
@@ -33,20 +36,28 @@ class App extends Component {
   }
 
 crawlCleaner = (apiData) => {
-  const crawls = apiData.results.map(film => film.opening_crawl)
+  const crawls = apiData.results.map(film => {
+    return {title: film.title, episode: film.episode_id, crawl: film.opening_crawl}
+  });
   return crawls;
 }
 
 render() {
+  if (!this.state.crawlData.length) {
+    return (
+      <p>please wait</p>
+    );
+  }
   return (
     <div className="background">
       <header className="App-header">
         <h1 className="App-title">SWAPI UNIVERSE</h1>
         <button></button>
       </header>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
+      <CardContainer 
+        crawlData={this.state.crawlData}
+        people={this.state.people} 
+        planets={this.state.planets}/>
     </div>
   );
 }
