@@ -9,16 +9,13 @@ const CardContainer = (props) => {
         <div className="fade"></div>
         <section className="star-wars">
           <div className="crawl">
-
             <div className="title">
               <p>Episode {crawlData[randomNumber].episode}</p>
               <h1>{crawlData[randomNumber].title}</h1>
             </div>
-
             <p>{crawlData[randomNumber].crawl}</p>
-
+            <p>Released {crawlData[randomNumber].release}</p>
           </div>
-
         </section>
       </div>
     );

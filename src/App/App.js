@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Button from './Components/Button/Button.js';
+import ButtonContainer from './Components/ButtonContainer/ButtonContainer.js';
 import CardContainer from './Components/CardContainer/CardContainer.js';
 
 class App extends Component {
@@ -9,7 +9,9 @@ class App extends Component {
     this.state = {
       crawlData: [],
       people: [],
-      planets: []
+      planets: [],
+      starships: [],
+      favorites: []
     };
   }
   
@@ -37,7 +39,12 @@ class App extends Component {
 
 crawlCleaner = (apiData) => {
   const crawls = apiData.results.map(film => {
-    return {title: film.title, episode: film.episode_id, crawl: film.opening_crawl}
+    return {
+      title: film.title, 
+      episode: film.episode_id, 
+      crawl: film.opening_crawl,
+      release: film.release_date
+    };
   });
   return crawls;
 }
@@ -52,8 +59,9 @@ render() {
     <div className="background">
       <header className="App-header">
         <h1 className="App-title">SWAPI UNIVERSE</h1>
-        <button></button>
+        <button>View Favorites {this.state.favorites.length}</button>
       </header>
+      <ButtonContainer />
       <CardContainer 
         crawlData={this.state.crawlData}
         people={this.state.people} 
