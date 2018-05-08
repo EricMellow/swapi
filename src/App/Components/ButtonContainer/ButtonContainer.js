@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Button/Button.js';
+import './ButtonContainer.css'
 
 const ButtonContainer = (props) => {
   return (
@@ -14,6 +15,10 @@ const ButtonContainer = (props) => {
       />
       <Button
         name={'Starships'}
+        callFunction={1}
+      />
+      <Button
+        name={'Vehicles'}
         callFunction={1}
       />
     </div>
