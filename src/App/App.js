@@ -12,6 +12,7 @@ class App extends Component {
       people: [],
       planets: [],
       starships: [],
+      vehicles: [],
       favorites: []
     };
   }
@@ -35,6 +36,14 @@ class App extends Component {
     const starships = await response.json();
     this.setState({
       starships: shipsCleaner(starships)
+    });
+  }
+
+  getVehicles = async () => {
+    const response = await fetch('https://swapi.co/api/vehicles');
+    const vehicles = await response.json();
+    this.setState({
+      vehicles: vehiclesCleaner(vehicles)
     });
   }
 
@@ -108,6 +117,7 @@ class App extends Component {
           getPeople={this.getPeople}
           getPlanets={this.getPlanets}
           getStarships={this.getStarships}
+          getVehicles={this.getVehicles}
         />
         <CardContainer 
           crawlData={this.state.crawlData}
