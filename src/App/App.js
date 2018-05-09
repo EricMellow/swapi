@@ -32,7 +32,18 @@ class App extends Component {
     const response = await fetch('https://swapi.co/api/people');
     const peopleData = await response.json();
     const cleanedPeopleData = peopleCleaner(peopleData);
-    console.log(cleanedPeopleData);
+    const peopleWithHomeworldData = await this.getHomeworld(cleanedPeopleData)
+    console.log(peopleWithHomeworldData)
+  }
+
+  getHomeworld = (people) => {
+    const homeworldInfo = people.map(async person => {
+      const url = person.homeworld;
+      const response = await fetch(url);
+      const homeworld = await response.json();
+      return {...person, homeworld: homeworld.name, population: homeworld.population}
+    })
+    return Promise.all(homeworldInfo)
   }
 
   getPlanets = async () => {
@@ -40,7 +51,7 @@ class App extends Component {
     const planetData = await response.json();
     const cleanedPlanetData = planetsCleaner(planetData);
     const allPlanetsInfo = await this.getResidents(cleanedPlanetData);
-    console.log(allPlanetsInfo)
+    // console.log(allPlanetsInfo)
   }
 
   getResidents = (planetData) => {
