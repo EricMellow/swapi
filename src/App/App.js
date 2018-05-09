@@ -30,6 +30,14 @@ class App extends Component {
     });
   };
 
+  getStarships = async () => {
+    const response = await fetch('https://swapi.co/api/starships');
+    const starships = await response.json();
+    this.setState({
+      starships: shipsCleaner(starships)
+    });
+  }
+
   getPeople = async () => {
     const response = await fetch('https://swapi.co/api/people');
     const peopleData = await response.json();
@@ -99,6 +107,7 @@ class App extends Component {
         <ButtonContainer 
           getPeople={this.getPeople}
           getPlanets={this.getPlanets}
+          getStarships={this.getStarships}
         />
         <CardContainer 
           crawlData={this.state.crawlData}
