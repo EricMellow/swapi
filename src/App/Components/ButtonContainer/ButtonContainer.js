@@ -2,24 +2,24 @@ import React from 'react';
 import Button from '../Button/Button.js';
 import './ButtonContainer.css'
 
-const ButtonContainer = (props) => {
+const ButtonContainer = ({getPeople, getPlanets}) => {
   return (
     <div className='btn-container'>
       <Button 
         name={'People'}
-        callFunction={1}
+        handleButtonClick={getPeople}
       />
       <Button
         name={'Planets'}
-        callFunction={1}
+        handleButtonClick={getPlanets}
       />
       <Button
         name={'Starships'}
-        callFunction={1}
+        handleButtonClick={1}
       />
       <Button
         name={'Vehicles'}
-        callFunction={1}
+        handleButtonClick={1}
       />
     </div>
 );
