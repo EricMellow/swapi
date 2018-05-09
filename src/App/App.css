@@ -9,12 +9,16 @@
 
 .App-header {
   height: 150px;
-  padding: 20px;
+  padding: 10px;
   color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .App-title {
   font-size: 1.5em;
+  margin: 0 auto;
+  display: inline-block;
 }
 
 .App-intro {
@@ -26,4 +30,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+}
+
+.favorites-btn {
+
 }
