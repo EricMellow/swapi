@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../Button/Button.js';
 import './ButtonContainer.css'
 
-const ButtonContainer = ({getPeople, getPlanets}) => {
+const ButtonContainer = ({getPeople, getPlanets, getStarships}) => {
   return (
     <div className='btn-container'>
       <Button 
@@ -15,7 +15,7 @@ const ButtonContainer = ({getPeople, getPlanets}) => {
       />
       <Button
         name={'Starships'}
-        handleButtonClick={1}
+        handleButtonClick={getStarships}
       />
       <Button
         name={'Vehicles'}
