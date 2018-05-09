@@ -4,7 +4,7 @@ export const peopleCleaner = (people) => {
       name: person.name, 
       homeworld: person.homeworld, 
       species: person.species[0], 
-      population: person.homeworld 
+      population: 0 
     };
   });
   return characters;

@@ -2,9 +2,9 @@ import React from 'react';
 import './Button.css';
 
 
-const Button = ({name, callFunction}) => {
+const Button = ({name, handleButtonClick}) => {
   return (
-    <button>{name}</button>
+    <button onClick={handleButtonClick}>{name}</button>
   );
 };
 
