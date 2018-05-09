@@ -84,7 +84,7 @@ class App extends Component {
       <div className="background">
         <header className="App-header">
           <h1 className="App-title">SWAPI UNIVERSE</h1>
-          <button>View Favorites {this.state.favorites.length}</button>
+          <button className="favorites-btn">View Favorites {this.state.favorites.length}</button>
         </header>
         <ButtonContainer 
           getPeople={this.getPeople}

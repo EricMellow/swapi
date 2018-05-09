@@ -3,7 +3,8 @@ button {
   height: 50px;
   border-radius: 3px;
   margin: 0 20px;
-  background-color: rgb(251, 213, 106);
+  background-color: #eebb66;
   font-size: 19px;
   padding: 0;
+  border: 2px solid #882233;
 }
