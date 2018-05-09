@@ -3,10 +3,10 @@ import './CardContainer.css';
 
 const CardContainer = (props) => {
   const {crawlData, people, planets} = props;
-  if (!people.length && !planets.length) {
+  if (!planets.length) {
     let randomNumber = Math.floor(Math.random() * ((6 - 0) +1)) + 0;
     return (
-      <div>
+      <div className="card-container">
         <div className="fade"></div>
         <section className="star-wars">
           <div className="crawl">
@@ -21,6 +21,11 @@ const CardContainer = (props) => {
       </div>
     );
   }
+  return (
+    <div className="card-container">
+    
+    </div>
+  )
 };
 
 export default CardContainer;
