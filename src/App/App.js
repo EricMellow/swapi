@@ -135,11 +135,9 @@ class App extends Component {
           return <Planets cardData={this.state.cardData} />;
         }} />
         <Route exact path='/vehicles' component={Vehicles} />
-        <Route exact path='/starships' component={Starships} />
-        {/* <CardContainer 
-          crawlData={this.state.crawlData}
-          people={this.state.people} 
-          planets={this.state.planets}/> */}
+        <Route exact path='/starships' render={() => {
+          return <Starships cardData={this.state.cardData} />;
+        }} />
       </div>
     );
   }
