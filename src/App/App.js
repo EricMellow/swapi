@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import { peopleCleaner, planetsCleaner, filmsCleaner, shipsCleaner, vehiclesCleaner } from '../cleaners.js';
 import ButtonContainer from './Components/ButtonContainer/ButtonContainer.js';
-import CardContainer from './Components/CardContainer/CardContainer.js';
+import Crawl from './Components/Crawl/Crawl.js';
+import People from './Components/People/People.js';
+import Planets from './Components/Planets/Planets.js';
+import Vehicles from './Components/Vehicles/Vehicles.js';
+import Starships from './Components/Starships/Starships.js';
+import { NavLink, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -112,7 +117,7 @@ class App extends Component {
       <div className="background">
         <header className="App-header">
           <h1 className="App-title">SWAPI UNIVERSE</h1>
-          <button className="favorites-btn">View Favorites {this.state.favorites.length}</button>
+          <button className="button">View Favorites {this.state.favorites.length}</button>
         </header>
         <ButtonContainer 
           getPeople={this.getPeople}
@@ -120,10 +125,17 @@ class App extends Component {
           getStarships={this.getStarships}
           getVehicles={this.getVehicles}
         />
-        <CardContainer 
+        <Route exact path='' render={ () => (
+          <Crawl crawlData={this.state.crawlData} />
+        )} />
+        <Route exact path='/people' component={People} />
+        <Route exact path='/planets' component={Planets} />
+        <Route exact path='/vehicles' component={Vehicles} />
+        <Route exact path='/starships' component={Starships} />
+        {/* <CardContainer 
           crawlData={this.state.crawlData}
           people={this.state.people} 
-          planets={this.state.planets}/>
+          planets={this.state.planets}/> */}
       </div>
     );
   }
