@@ -6,11 +6,11 @@ const People = ({cardData}) => {
   if (cardData){
     peopleCards = cardData.map((person, index) => {
       return (
-        <div key={person.name + index}>
+        <div key={person.name + index} className="card">
           <h3>{person.name}</h3>
           <p>Species: {person.species}</p>
           <p>Homeworld: {person.homeworld}</p>
-          <p>Homeworld Pop.: {person.population}</p>
+          <p>Homeworld Population: {person.population}</p>
         </div>
       )
     })
@@ -18,7 +18,7 @@ const People = ({cardData}) => {
   }
 
   return (
-    <div>
+    <div className="container">
       {peopleCards.length > 1 && peopleCards}
     </div>
   );
