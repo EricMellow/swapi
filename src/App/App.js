@@ -129,10 +129,11 @@ class App extends Component {
           <Crawl crawlData={this.state.crawlData} />
         )} />
         <Route exact path='/people' render={ () => {
-          // this.getPeople();
           return <People cardData={this.state.cardData} />;
         }} />
-        <Route exact path='/planets' component={Planets} />
+        <Route exact path='/planets' render={() => {
+          return <Planets cardData={this.state.cardData} />;
+        }} />
         <Route exact path='/vehicles' component={Vehicles} />
         <Route exact path='/starships' component={Starships} />
         {/* <CardContainer 
