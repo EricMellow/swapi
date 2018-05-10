@@ -13,7 +13,8 @@ class App extends Component {
       planets: [],
       starships: [],
       vehicles: [],
-      favorites: []
+      favorites: [],
+      buttonClicked: ''
     };
   }
   

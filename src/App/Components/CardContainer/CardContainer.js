@@ -6,9 +6,8 @@ const CardContainer = (props) => {
   if (!planets.length) {
     let randomNumber = Math.floor(Math.random() * ((6 - 0) +1)) + 0;
     return (
-      <div className="card-container">
-        <div className="fade"></div>
-        <section className="star-wars">
+      <div>
+        <section className="crawl-container">
           <div className="crawl">
             <div className="title">
               <h1>Episode {crawlData[randomNumber].episode}</h1>
