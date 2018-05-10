@@ -2,7 +2,6 @@ import React from 'react';
 import './Crawl.css';
 
 const Crawl = (props) => {
-  console.log(props)
   const {crawlData} = props;
   let randomNumber = Math.floor(Math.random() * ((6 - 0) +1)) + 0;
   return (
