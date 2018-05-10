@@ -1,10 +1,15 @@
-button {
+.button {
   width: 150px;
   height: 50px;
+  color: black;
   border-radius: 3px;
   margin: 0 20px;
   background-color: #eebb66;
   font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   padding: 0;
   border: 2px solid #882233;
 }

@@ -1,28 +1,17 @@
 import React from 'react';
 import Button from '../Button/Button.js';
-import './ButtonContainer.css'
+import './ButtonContainer.css';
+import { NavLink, Route } from 'react-router-dom';
 
 const ButtonContainer = ({getPeople, getPlanets, getStarships, getVehicles}) => {
   return (
     <div className='btn-container'>
-      <Button 
-        name={'People'}
-        handleButtonClick={getPeople}
-      />
-      <Button
-        name={'Planets'}
-        handleButtonClick={getPlanets}
-      />
-      <Button
-        name={'Starships'}
-        handleButtonClick={getStarships}
-      />
-      <Button
-        name={'Vehicles'}
-        handleButtonClick={getVehicles}
-      />
+      <NavLink to='/people' className="button">People</NavLink>
+      <NavLink to='/planets' className="button">Planets</NavLink>
+      <NavLink to='/vehicles' className="button">Vehicles</NavLink>
+      <NavLink to='/starships' className="button">Starships</NavLink>
     </div>
-);
+  );
 };
 
 export default ButtonContainer;
