@@ -1,0 +1,31 @@
+.container {
+  width: 80%;
+  margin: 30px auto 10px auto;
+  display: flex;
+  justify-content: space-around;
+  height: 65%;
+  border: 2px solid white;
+  border-radius: 5px;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.card {
+  width: 220px;
+  height: 275px;
+  border: 2px solid #000;
+  text-align: center;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255, .3);
+}
+
+p {
+  font-size: 18px;
+  margin: 15px 5px;
+}
+
+h3 {
+  font-size: 28px;
+  margin: 20px 5px;
+}
