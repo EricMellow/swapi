@@ -14,12 +14,8 @@ class App extends Component {
     super(); 
     this.state = {
       crawlData: [],
-      people: [],
-      planets: [],
-      starships: [],
-      vehicles: [],
-      favorites: [],
-      buttonClicked: ''
+      cardData: [],
+      favorites: []
     };
   }
   
@@ -41,7 +37,7 @@ class App extends Component {
     const response = await fetch('https://swapi.co/api/starships');
     const starships = await response.json();
     this.setState({
-      starships: shipsCleaner(starships)
+      cardData: shipsCleaner(starships)
     });
   }
 
@@ -49,7 +45,7 @@ class App extends Component {
     const response = await fetch('https://swapi.co/api/vehicles');
     const vehicles = await response.json();
     this.setState({
-      vehicles: vehiclesCleaner(vehicles)
+      cardData: vehiclesCleaner(vehicles)
     });
   }
 
@@ -59,7 +55,9 @@ class App extends Component {
     const cleanedPeopleData = peopleCleaner(peopleData);
     const peopleWithHomeworldData = await this.getHomeworld(cleanedPeopleData);
     const people = await this.getSpecies(peopleWithHomeworldData);
-    await this.setState( { people } );
+    this.setState({
+      cardData: people
+    });
   }
 
   getSpecies = (species) => {
@@ -87,7 +85,9 @@ class App extends Component {
     const planetData = await response.json();
     const cleanedPlanetData = planetsCleaner(planetData);
     const planets = await this.getResidents(cleanedPlanetData);
-    this.setState( { planets } );
+    this.setState({
+      cardData: planets
+    });
   }
 
   getResidents = (planetData) => {
@@ -125,10 +125,13 @@ class App extends Component {
           getStarships={this.getStarships}
           getVehicles={this.getVehicles}
         />
-        <Route exact path='' render={ () => (
+        <Route exact path='/' render={ () => (
           <Crawl crawlData={this.state.crawlData} />
         )} />
-        <Route exact path='/people' component={People} />
+        <Route exact path='/people' render={ () => {
+          // this.getPeople();
+          return <People cardData={this.state.cardData} />;
+        }} />
         <Route exact path='/planets' component={Planets} />
         <Route exact path='/vehicles' component={Vehicles} />
         <Route exact path='/starships' component={Starships} />
