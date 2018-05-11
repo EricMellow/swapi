@@ -26,19 +26,42 @@ class App extends Component {
   }
 
   getCrawl = async () => {
-    const response = await fetch('https://swapi.co/api/films');
-    const crawlData = await response.json();
-    this.setState({
-      crawlData: filmsCleaner(crawlData)
-    });
+    try {
+      const response = await fetch('https://swapi.co/api/films');
+      const crawlData = await response.json();
+      this.setState({
+        crawlData: filmsCleaner(crawlData)
+      });
+    }
+    catch (error) {
+      this.setState({
+        crawlData: [{
+          crawl: "We're so sorry, but something has gone incredibly wrong and we weren't able to fetch the data. :(",
+          episode: 'Oh no!',
+          release: "Just now",
+          title: "Error"
+        }]
+      });
+    }
   };
 
   getStarships = async () => {
-    const response = await fetch('https://swapi.co/api/starships');
-    const starships = await response.json();
-    this.setState({
-      cardData: shipsCleaner(starships)
-    });
+    try {
+      const response = await fetch('https://swapi.co/api/starships');
+      const starships = await response.json();
+      this.setState({
+        cardData: shipsCleaner(starships)
+      });
+    }
+    catch (error) {
+      this.setState({
+        cardData: [{ 
+          hyperdriveRating: ":(", 
+          model: "Something went wrong", 
+          name: "Oh no!", 
+          numOfPassengers: "No data" }]
+      })
+    }
   }
 
   getVehicles = async () => {

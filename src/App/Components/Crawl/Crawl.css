@@ -25,7 +25,15 @@
   text-align: justify;
   top: -100px;
 }
-
+.crawl-text {
+  color: #feda4a;
+  font-size: 74px;
+  letter-spacing: 5px;
+  line-height: 150%;
+  text-align: justify;
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 700;
+}
 .title {
   text-align: center;
 }
