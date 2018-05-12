@@ -29,14 +29,7 @@ class App extends Component {
     try {
       const response = await fetch('https://swapi.co/api/films');
       if (response.status !== 200) {
-        this.setState({
-          crawlData: [{
-            crawl: "We're so sorry, but something has gone incredibly wrong and we weren't able to fetch the data. :(",
-            episode: 'Oh no!',
-            release: "Just now",
-            title: "Error"
-          }]
-        });
+        throw new Error('Status Error');
       }
       const crawlData = await response.json();
       this.setState({
@@ -59,14 +52,7 @@ class App extends Component {
     try {
       const response = await fetch('https://swapi.co/api/starships');
       if (response.status !== 200) {
-        this.setState({
-          cardData: [{
-            hyperdriveRating: ":(",
-            model: "Something went wrong",
-            name: "Oh no!",
-            numOfPassengers: "No data"
-          }]
-        });
+        throw new Error('Status Error');
       }
       const starships = await response.json();
       this.setState({
@@ -88,14 +74,7 @@ class App extends Component {
     try {
       const response = await fetch('https://swapi.co/api/vehicles');
       if (response.status !== 200) {
-        this.setState({
-          cardData: [{
-            model: "Something went wrong",
-            name: "Oh no!",
-            numOfPassengers: "No data",
-            vehicleClass: ":("
-          }]
-        });
+        throw new Error('Status Error');
       }
       const vehicles = await response.json();
       this.setState({
@@ -118,14 +97,7 @@ class App extends Component {
     try {
       const response = await fetch('https://swapi.co/api/people');
       if (response.status !== 200) {
-        this.setState({
-          cardData: [{
-            homeworld: ":(",
-            name: "Oh no!",
-            population: "No data",
-            species: "Something went wrong"
-          }]
-        });
+        throw new Error('Status Error');
       }
       const peopleData = await response.json();
       const cleanedPeopleData = peopleCleaner(peopleData);
@@ -148,13 +120,26 @@ class App extends Component {
   }
 
   getSpecies = (species) => {
-    const speciesInfo = species.map(async genus => {
-      const url = genus.species;
-      const response = await fetch(url);
-      const species = await response.json();
-      return {...genus, species: species.name};
-    });
-    return Promise.all(speciesInfo);
+    try {
+      const speciesInfo = species.map(async genus => {
+        const url = genus.species;
+        const response = await fetch(url);
+        if (response.status !== 200) {
+          throw new Error('Status Error');
+        }
+        const species = await response.json();
+        return {...genus, species: species.name};
+      });
+      return Promise.all(speciesInfo);
+    }
+    catch (error) {
+      return {
+        homeworld: ":(",
+        name: "Oh no!",
+        population: "No data",
+        species: "Something went wrong"
+      };
+    }
   }
 
   getHomeworld = (people) => {

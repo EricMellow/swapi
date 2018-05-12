@@ -239,7 +239,102 @@ describe('App', () => {
       await wrapper.instance().getPeople();
 
       expect(wrapper.state('cardData')).toEqual(expected)
+    });
+  });
+
+  describe('getSpecies', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<App />)
+      const mockData = mockCleanedPeople
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve(mockCleanedPeople), status: 200}))
+    })
+    
+    it('should call fetch with the correct parameters', async () => {
+      const mockSpeciesData = mockPeople.results;
+      const expected = ['https://swapi.co/api/species/1/'];
+
+      await wrapper.instance().getSpecies(mockSpeciesData);
+
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+
+    });
+
+    it('should return an error object when the fetch call is unsuccessful', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('Oopsies!')));
+      const expected = {
+        homeworld: ":(",
+        name: "Oh no!",
+        population: "No data",
+        species: "Something went wrong"
+      };
+
+      const actual = await wrapper.instance().getSpecies();
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return an error object when the fetch call returns a response with a status that is not 200', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: jest.fn(), status: 408}));
+      const expected = {
+        homeworld: ":(",
+        name: "Oh no!",
+        population: "No data",
+        species: "Something went wrong"
+      };
+
+      const actual = await wrapper.instance().getSpecies();
+
+      expect(actual).toEqual(expected);
     })
   });
 
+  describe('getHomeworld', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<App />)
+      const mockData = mockCleanedPeople
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockCleanedPeople), status: 200 }))
+    })
+
+    it('should call fetch with the correct parameters', async () => {
+      const mockSpeciesData = mockPeople.results;
+      const expected = ['https://swapi.co/api/species/1/'];
+
+      await wrapper.instance().getHomeworld(mockSpeciesData);
+
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+
+    });
+
+    it('should return an error object when the fetch call is unsuccessful', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('Oopsies!')));
+      const expected = {
+        homeworld: ":(",
+        name: "Oh no!",
+        population: "No data",
+        species: "Something went wrong"
+      };
+
+      const actual = await wrapper.instance().getHomeworld();
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return an error object when the fetch call returns a response with a status that is not 200', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: jest.fn(), status: 408 }));
+      const expected = {
+        homeworld: ":(",
+        name: "Oh no!",
+        population: "No data",
+        species: "Something went wrong"
+      };
+
+      const actual = await wrapper.instance().getSpecies();
+
+      expect(actual).toEqual(expected);
+    })
+  });
 });
