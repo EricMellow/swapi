@@ -5,6 +5,7 @@ import { shallow, mount } from 'enzyme';
 import mockCrawl from './mockCrawlData.js';
 import { mockShip } from './mockStarshipData.js';
 import { mockVehicles } from './mockVehiclesData';
+import { mockPeople, mockCleanedPeople} from './mockPeopleData';
 
 describe('App', () => {
   let wrapper;
@@ -169,6 +170,76 @@ describe('App', () => {
 
       expect(wrapper.state('cardData')).toEqual(expected);
     });
+  });
+
+  describe('getPeople', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve(mockPeople), status: 200}));
+      wrapper = shallow(<App />)
+      wrapper.componentDidMount = jest.fn();
+      const mockData = mockPeople;
+
+    });
+
+    it('should call getHomeworld with the correct parameters', async () => {
+      wrapper.getSpecies = jest.fn();
+      const spy = jest.spyOn(wrapper.instance(), 'getHomeworld');
+      
+      const expected = [{ 
+        homeworld: "https://swapi.co/api/planets/1/", 
+        name: "Luke Skywalker", 
+        population: 0, 
+        species: "https://swapi.co/api/species/1/" }];
+
+      await wrapper.instance().getPeople();
+
+      expect(spy).toHaveBeenCalledWith(expected);
+    });
+
+    it('should call getSpecies with the correct parameters', async () => {
+      const spy = jest.spyOn(wrapper.instance(), 'getSpecies');
+
+      const expected = [{
+        homeworld: undefined,
+        name: "Luke Skywalker",
+        population: undefined,
+        species: "https://swapi.co/api/species/1/"
+      }];
+
+      await wrapper.instance().getPeople();
+
+      expect(spy).toHaveBeenCalledWith(expected);
+    });
+
+    it('should set cardData in state to a single error message object if the fetch fails', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject( new Error('Test error')));
+      const expected = [{
+        homeworld: ":(",
+        name: "Oh no!",
+        population: "No data",
+        species: "Something went wrong"
+      }];
+
+      await wrapper.instance().getPeople();
+
+      expect(wrapper.state('cardData')).toEqual(expected);
+    });
+
+    it('should set cardData in state to a single error message object if the fetch response status is not 200', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: jest.fn(), status: 408}));
+      const expected = [{
+        homeworld: ":(",
+        name: "Oh no!",
+        population: "No data",
+        species: "Something went wrong"
+      }];
+
+      await wrapper.instance().getPeople();
+
+      expect(wrapper.state('cardData')).toEqual(expected)
+    })
   });
 
 });

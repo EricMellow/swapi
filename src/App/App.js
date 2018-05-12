@@ -115,14 +115,36 @@ class App extends Component {
   }
 
   getPeople = async () => {
-    const response = await fetch('https://swapi.co/api/people');
-    const peopleData = await response.json();
-    const cleanedPeopleData = peopleCleaner(peopleData);
-    const peopleWithHomeworldData = await this.getHomeworld(cleanedPeopleData);
-    const people = await this.getSpecies(peopleWithHomeworldData);
-    this.setState({
-      cardData: people
-    });
+    try {
+      const response = await fetch('https://swapi.co/api/people');
+      if (response.status !== 200) {
+        this.setState({
+          cardData: [{
+            homeworld: ":(",
+            name: "Oh no!",
+            population: "No data",
+            species: "Something went wrong"
+          }]
+        });
+      }
+      const peopleData = await response.json();
+      const cleanedPeopleData = peopleCleaner(peopleData);
+      const peopleWithHomeworldData = await this.getHomeworld(cleanedPeopleData);
+      const people = await this.getSpecies(peopleWithHomeworldData);
+      this.setState({
+        cardData: people
+      });
+    }
+    catch (error) {
+      this.setState({
+        cardData: [{
+          homeworld: ":(",
+          name: "Oh no!",
+          population: "No data",
+          species: "Something went wrong"
+        }]
+      });
+    }
   }
 
   getSpecies = (species) => {
