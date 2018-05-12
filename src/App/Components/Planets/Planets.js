@@ -13,8 +13,8 @@ const Planets = ({cardData}) => {
           <p>Population: {planet.population}</p>
           <p>Residents: {planet.residents}</p>
         </div>
-      )
-    })
+      );
+    });
 
   }
 
