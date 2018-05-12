@@ -60,16 +60,28 @@ class App extends Component {
           model: "Something went wrong", 
           name: "Oh no!", 
           numOfPassengers: "No data" }]
-      })
+      });
     }
   }
 
   getVehicles = async () => {
-    const response = await fetch('https://swapi.co/api/vehicles');
-    const vehicles = await response.json();
-    this.setState({
-      cardData: vehiclesCleaner(vehicles)
-    });
+    try {
+      const response = await fetch('https://swapi.co/api/vehicles');
+      const vehicles = await response.json();
+      this.setState({
+        cardData: vehiclesCleaner(vehicles)
+      });
+    }
+    catch (error){
+      this.setState({
+        cardData: [{
+          model: "Something went wrong",
+          name: "Oh no!",
+          numOfPassengers: "No data",
+          vehicleClass: ":("
+        }]
+      });
+    }
   }
 
   getPeople = async () => {

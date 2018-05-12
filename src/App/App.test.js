@@ -4,6 +4,7 @@ import App from './App';
 import { shallow, mount } from 'enzyme';
 import mockCrawl from './mockCrawlData.js';
 import mockShip from './mockStarshipData.js';
+import mockVehicles from './mockVehiclesData'
 
 describe('App', () => {
   let wrapper;
@@ -86,6 +87,43 @@ describe('App', () => {
       }];
 
       await wrapper.instance().getStarships();
+
+      expect(wrapper.state('cardData')).toEqual(expected);
+    });
+  });
+
+  describe('getVehicles', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<App />)
+      wrapper.componentDidMount = jest.fn();
+      const mockVehiclesData = mockVehicles;
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve(mockVehiclesData), status: 200}))
+    });
+
+    it('should call fetch with the correct params and set the fetch data to cardData in state', async () => {
+      const expected = [{
+        model: "Digger Crawler", 
+        name: "Sand Crawler", 
+        numOfPassengers: "30", 
+        vehicleClass: "wheeled"}];
+
+      await wrapper.instance().getVehicles();
+
+      expect(wrapper.state('cardData')).toEqual(expected);
+    });
+
+    it('should set cardData in state with a single error message object if the fetch fails', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject( new Error('This is my test error')));
+      const expected = [{
+        model: "Something went wrong",
+        name: "Oh no!",
+        numOfPassengers: "No data",
+        vehicleClass: ":("
+      }];
+
+      await wrapper.instance().getVehicles();
 
       expect(wrapper.state('cardData')).toEqual(expected);
     });
