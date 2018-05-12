@@ -12,6 +12,10 @@ describe('App', () => {
     wrapper = shallow(<App />);
   });
 
+  it('should match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should start with a default state of empty arrays', () => {
     const expected = {
       crawlData: [],
@@ -40,7 +44,7 @@ describe('App', () => {
       expect(wrapper.state('crawlData')).toEqual(expected);
     });
 
-    it('should set the crawlData in state to a single error message object', async () => {
+    it('should set the crawlData in state to a single error message object if the fetch fails', async () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.reject( new Error('Fetch Failed')));
       const expected = [{
         crawl: "We're so sorry, but something has gone incredibly wrong and we weren't able to fetch the data. :(",
@@ -70,7 +74,21 @@ describe('App', () => {
       await wrapper.instance().getStarships();
 
       expect(wrapper.state('cardData')).toEqual(expected)
-    })
+    });
+
+    it('should set cardData in state with a single error message object if the fetch fails', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('Test Fetch')));
+      const expected = [{
+        hyperdriveRating: ":(",
+        model: "Something went wrong",
+        name: "Oh no!",
+        numOfPassengers: "No data"
+      }];
+
+      await wrapper.instance().getStarships();
+
+      expect(wrapper.state('cardData')).toEqual(expected);
+    });
   });
 
 });
