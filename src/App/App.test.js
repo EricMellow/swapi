@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow, mount } from 'enzyme';
-import mockCrawl from './mockCrawlData.js';
+import { mockCrawl } from './mockCrawlData.js';
 import { mockShip } from './mockStarshipData.js';
 import { mockVehicles } from './mockVehiclesData';
 import { mockPeople, mockCleanedPeople} from './mockPeopleData';

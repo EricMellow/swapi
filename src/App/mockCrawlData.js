@@ -65,4 +65,49 @@ const mockCrawl = {
   ]
 };
 
-export default mockCrawl;
+const mockCleanedCrawl = [
+  {
+    "title": "A New Hope",
+    "episode_id": 4,
+    "opening_crawl": "Opening Crawl Test",
+    "release_date": "1977-05-25"
+  },
+  {
+    "title": "A New Snope",
+    "episode_id": 3,
+    "opening_crawl": "Opening Crawl Test",
+    "release_date": "1977-05-25"
+  },
+  {
+    "title": "A New Tommy Cornelius",
+    "episode_id": 3,
+    "opening_crawl": "Opening Crawl Test",
+    "release_date": "1977-05-25"
+  },
+  {
+    "title": "A New Hope",
+    "episode_id": 4,
+    "opening_crawl": "Opening Crawl Test",
+    "release_date": "1977-05-25"
+  },
+  {
+    "title": "A New Snope",
+    "episode_id": 3,
+    "opening_crawl": "Opening Crawl Test",
+    "release_date": "1977-05-25"
+  },
+  {
+    "title": "A New Tommy Cornelius",
+    "episode_id": 3,
+    "opening_crawl": "Opening Crawl Test",
+    "release_date": "1977-05-25"
+  },
+  {
+    "title": "A New Tommy Cornelius",
+    "episode_id": 3,
+    "opening_crawl": "Opening Crawl Test",
+    "release_date": "1977-05-25"
+  }
+];
+
+export { mockCrawl, mockCleanedCrawl };
