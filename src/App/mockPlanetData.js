@@ -29,7 +29,7 @@ const mockPlanet = {
   ]
 };
 
-mockCleanedPlanets = [
+const mockCleanedPlanets = [
   {
     name: "Alderaan",
     climate: "temperate",
