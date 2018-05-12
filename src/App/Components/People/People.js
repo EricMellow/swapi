@@ -12,8 +12,8 @@ const People = ({cardData}) => {
           <p>Homeworld: {person.homeworld}</p>
           <p>Homeworld Population: {person.population}</p>
         </div>
-      )
-    })
+      );
+    });
 
   }
 
