@@ -27,4 +27,25 @@ const mockVehicles = {
   ]
 };
 
-export default mockVehicles;
+const mockCleanedVehicles = [
+  {
+    name: "Sand Crawler",
+    model: "Digger Crawler",
+    passengers: "30",
+    vehicle_class: "wheeled"
+  },
+  {
+    name: "Kitt",
+    model: "Trans Am",
+    passengers: "2",
+    vehicle_class: "Knight Rider"
+  },
+  {
+    name: "General Lee",
+    model: "Charger",
+    passengers: "2",
+    vehicle_class: "wheeled"
+  }
+];
+
+export default { mockVehicles, mockCleanedVehicles };

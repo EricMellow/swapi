@@ -1,6 +1,6 @@
 import React from 'react';
 import People from './People';
-import {mockPeople, mockCleanedPeople} from '../../mockPeopleData';
+import { mockCleanedPeople } from '../../mockPeopleData';
 import { shallow } from 'enzyme';
 
 describe('People', () => {
