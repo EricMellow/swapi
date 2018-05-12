@@ -64,7 +64,28 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Vehicle
-    cardData={undefined}
+    cardData={
+        Array [
+            Object {
+              "model": "Digger Crawler",
+              "name": "Sand Crawler",
+              "passengers": "30",
+              "vehicleClass": "wheeled",
+            },
+            Object {
+              "model": "Trans Am",
+              "name": "Kitt",
+              "passengers": "2",
+              "vehicleClass": "Knight Rider",
+            },
+            Object {
+              "model": "Charger",
+              "name": "General Lee",
+              "passengers": "2",
+              "vehicleClass": "wheeled",
+            },
+          ]
+    }
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -78,11 +99,337 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": false,
+      "children": Array [
+        <div
+          className="card"
+>
+          <h3>
+                    Sand Crawler
+          </h3>
+          <p>
+                    Model: 
+                    Digger Crawler
+          </p>
+          <p>
+                    Class: 
+                    wheeled
+          </p>
+          <p>
+                    Number of Passengers: 
+          </p>
+</div>,
+        <div
+          className="card"
+>
+          <h3>
+                    Kitt
+          </h3>
+          <p>
+                    Model: 
+                    Trans Am
+          </p>
+          <p>
+                    Class: 
+                    Knight Rider
+          </p>
+          <p>
+                    Number of Passengers: 
+          </p>
+</div>,
+        <div
+          className="card"
+>
+          <h3>
+                    General Lee
+          </h3>
+          <p>
+                    Model: 
+                    Charger
+          </p>
+          <p>
+                    Class: 
+                    wheeled
+          </p>
+          <p>
+                    Number of Passengers: 
+          </p>
+</div>,
+      ],
       "className": "container",
     },
     "ref": null,
-    "rendered": false,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "Sand Crawler0",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Sand Crawler
+</h3>,
+            <p>
+              Model: 
+              Digger Crawler
+</p>,
+            <p>
+              Class: 
+              wheeled
+</p>,
+            <p>
+              Number of Passengers: 
+</p>,
+          ],
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sand Crawler",
+            },
+            "ref": null,
+            "rendered": "Sand Crawler",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Model: ",
+                "Digger Crawler",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Model: ",
+              "Digger Crawler",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Class: ",
+                "wheeled",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Class: ",
+              "wheeled",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Number of Passengers: ",
+                undefined,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Number of Passengers: ",
+              undefined,
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "Kitt1",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Kitt
+</h3>,
+            <p>
+              Model: 
+              Trans Am
+</p>,
+            <p>
+              Class: 
+              Knight Rider
+</p>,
+            <p>
+              Number of Passengers: 
+</p>,
+          ],
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Kitt",
+            },
+            "ref": null,
+            "rendered": "Kitt",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Model: ",
+                "Trans Am",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Model: ",
+              "Trans Am",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Class: ",
+                "Knight Rider",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Class: ",
+              "Knight Rider",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Number of Passengers: ",
+                undefined,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Number of Passengers: ",
+              undefined,
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "General Lee2",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              General Lee
+</h3>,
+            <p>
+              Model: 
+              Charger
+</p>,
+            <p>
+              Class: 
+              wheeled
+</p>,
+            <p>
+              Number of Passengers: 
+</p>,
+          ],
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "General Lee",
+            },
+            "ref": null,
+            "rendered": "General Lee",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Model: ",
+                "Charger",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Model: ",
+              "Charger",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Class: ",
+                "wheeled",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Class: ",
+              "wheeled",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Number of Passengers: ",
+                undefined,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Number of Passengers: ",
+              undefined,
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -91,11 +438,337 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": false,
+        "children": Array [
+          <div
+            className="card"
+>
+            <h3>
+                        Sand Crawler
+            </h3>
+            <p>
+                        Model: 
+                        Digger Crawler
+            </p>
+            <p>
+                        Class: 
+                        wheeled
+            </p>
+            <p>
+                        Number of Passengers: 
+            </p>
+</div>,
+          <div
+            className="card"
+>
+            <h3>
+                        Kitt
+            </h3>
+            <p>
+                        Model: 
+                        Trans Am
+            </p>
+            <p>
+                        Class: 
+                        Knight Rider
+            </p>
+            <p>
+                        Number of Passengers: 
+            </p>
+</div>,
+          <div
+            className="card"
+>
+            <h3>
+                        General Lee
+            </h3>
+            <p>
+                        Model: 
+                        Charger
+            </p>
+            <p>
+                        Class: 
+                        wheeled
+            </p>
+            <p>
+                        Number of Passengers: 
+            </p>
+</div>,
+        ],
         "className": "container",
       },
       "ref": null,
-      "rendered": false,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "Sand Crawler0",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Sand Crawler
+</h3>,
+              <p>
+                Model: 
+                Digger Crawler
+</p>,
+              <p>
+                Class: 
+                wheeled
+</p>,
+              <p>
+                Number of Passengers: 
+</p>,
+            ],
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sand Crawler",
+              },
+              "ref": null,
+              "rendered": "Sand Crawler",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Model: ",
+                  "Digger Crawler",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Model: ",
+                "Digger Crawler",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Class: ",
+                  "wheeled",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Class: ",
+                "wheeled",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Number of Passengers: ",
+                  undefined,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Number of Passengers: ",
+                undefined,
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "Kitt1",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Kitt
+</h3>,
+              <p>
+                Model: 
+                Trans Am
+</p>,
+              <p>
+                Class: 
+                Knight Rider
+</p>,
+              <p>
+                Number of Passengers: 
+</p>,
+            ],
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Kitt",
+              },
+              "ref": null,
+              "rendered": "Kitt",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Model: ",
+                  "Trans Am",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Model: ",
+                "Trans Am",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Class: ",
+                  "Knight Rider",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Class: ",
+                "Knight Rider",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Number of Passengers: ",
+                  undefined,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Number of Passengers: ",
+                undefined,
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "General Lee2",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                General Lee
+</h3>,
+              <p>
+                Model: 
+                Charger
+</p>,
+              <p>
+                Class: 
+                wheeled
+</p>,
+              <p>
+                Number of Passengers: 
+</p>,
+            ],
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "General Lee",
+              },
+              "ref": null,
+              "rendered": "General Lee",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Model: ",
+                  "Charger",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Model: ",
+                "Charger",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Class: ",
+                  "wheeled",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Class: ",
+                "wheeled",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Number of Passengers: ",
+                  undefined,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Number of Passengers: ",
+                undefined,
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+      ],
       "type": "div",
     },
   ],

@@ -5,7 +5,28 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <People
-    cardData={undefined}
+    cardData={
+        Array [
+            Object {
+              "homeworld": "Test",
+              "name": "Luke Skywalker",
+              "population": 300000,
+              "species": "Human",
+            },
+            Object {
+              "homeworld": "Test",
+              "name": "Brett Bretterson",
+              "population": 300000,
+              "species": "Human",
+            },
+            Object {
+              "homeworld": "Test",
+              "name": "Mark Hammersmith",
+              "population": 300000,
+              "species": "Human",
+            },
+          ]
+    }
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -19,11 +40,343 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": false,
+      "children": Array [
+        <div
+          className="card"
+>
+          <h3>
+                    Luke Skywalker
+          </h3>
+          <p>
+                    Species: 
+                    Human
+          </p>
+          <p>
+                    Homeworld: 
+                    Test
+          </p>
+          <p>
+                    Homeworld Population: 
+                    300000
+          </p>
+</div>,
+        <div
+          className="card"
+>
+          <h3>
+                    Brett Bretterson
+          </h3>
+          <p>
+                    Species: 
+                    Human
+          </p>
+          <p>
+                    Homeworld: 
+                    Test
+          </p>
+          <p>
+                    Homeworld Population: 
+                    300000
+          </p>
+</div>,
+        <div
+          className="card"
+>
+          <h3>
+                    Mark Hammersmith
+          </h3>
+          <p>
+                    Species: 
+                    Human
+          </p>
+          <p>
+                    Homeworld: 
+                    Test
+          </p>
+          <p>
+                    Homeworld Population: 
+                    300000
+          </p>
+</div>,
+      ],
       "className": "container",
     },
     "ref": null,
-    "rendered": false,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "Luke Skywalker0",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Luke Skywalker
+</h3>,
+            <p>
+              Species: 
+              Human
+</p>,
+            <p>
+              Homeworld: 
+              Test
+</p>,
+            <p>
+              Homeworld Population: 
+              300000
+</p>,
+          ],
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Luke Skywalker",
+            },
+            "ref": null,
+            "rendered": "Luke Skywalker",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Species: ",
+                "Human",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Species: ",
+              "Human",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Homeworld: ",
+                "Test",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Homeworld: ",
+              "Test",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Homeworld Population: ",
+                300000,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Homeworld Population: ",
+              300000,
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "Brett Bretterson1",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Brett Bretterson
+</h3>,
+            <p>
+              Species: 
+              Human
+</p>,
+            <p>
+              Homeworld: 
+              Test
+</p>,
+            <p>
+              Homeworld Population: 
+              300000
+</p>,
+          ],
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Brett Bretterson",
+            },
+            "ref": null,
+            "rendered": "Brett Bretterson",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Species: ",
+                "Human",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Species: ",
+              "Human",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Homeworld: ",
+                "Test",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Homeworld: ",
+              "Test",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Homeworld Population: ",
+                300000,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Homeworld Population: ",
+              300000,
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "Mark Hammersmith2",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Mark Hammersmith
+</h3>,
+            <p>
+              Species: 
+              Human
+</p>,
+            <p>
+              Homeworld: 
+              Test
+</p>,
+            <p>
+              Homeworld Population: 
+              300000
+</p>,
+          ],
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Mark Hammersmith",
+            },
+            "ref": null,
+            "rendered": "Mark Hammersmith",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Species: ",
+                "Human",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Species: ",
+              "Human",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Homeworld: ",
+                "Test",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Homeworld: ",
+              "Test",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Homeworld Population: ",
+                300000,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Homeworld Population: ",
+              300000,
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -32,11 +385,343 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": false,
+        "children": Array [
+          <div
+            className="card"
+>
+            <h3>
+                        Luke Skywalker
+            </h3>
+            <p>
+                        Species: 
+                        Human
+            </p>
+            <p>
+                        Homeworld: 
+                        Test
+            </p>
+            <p>
+                        Homeworld Population: 
+                        300000
+            </p>
+</div>,
+          <div
+            className="card"
+>
+            <h3>
+                        Brett Bretterson
+            </h3>
+            <p>
+                        Species: 
+                        Human
+            </p>
+            <p>
+                        Homeworld: 
+                        Test
+            </p>
+            <p>
+                        Homeworld Population: 
+                        300000
+            </p>
+</div>,
+          <div
+            className="card"
+>
+            <h3>
+                        Mark Hammersmith
+            </h3>
+            <p>
+                        Species: 
+                        Human
+            </p>
+            <p>
+                        Homeworld: 
+                        Test
+            </p>
+            <p>
+                        Homeworld Population: 
+                        300000
+            </p>
+</div>,
+        ],
         "className": "container",
       },
       "ref": null,
-      "rendered": false,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "Luke Skywalker0",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Luke Skywalker
+</h3>,
+              <p>
+                Species: 
+                Human
+</p>,
+              <p>
+                Homeworld: 
+                Test
+</p>,
+              <p>
+                Homeworld Population: 
+                300000
+</p>,
+            ],
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Luke Skywalker",
+              },
+              "ref": null,
+              "rendered": "Luke Skywalker",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Species: ",
+                  "Human",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Species: ",
+                "Human",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Homeworld: ",
+                  "Test",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Homeworld: ",
+                "Test",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Homeworld Population: ",
+                  300000,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Homeworld Population: ",
+                300000,
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "Brett Bretterson1",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Brett Bretterson
+</h3>,
+              <p>
+                Species: 
+                Human
+</p>,
+              <p>
+                Homeworld: 
+                Test
+</p>,
+              <p>
+                Homeworld Population: 
+                300000
+</p>,
+            ],
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Brett Bretterson",
+              },
+              "ref": null,
+              "rendered": "Brett Bretterson",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Species: ",
+                  "Human",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Species: ",
+                "Human",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Homeworld: ",
+                  "Test",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Homeworld: ",
+                "Test",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Homeworld Population: ",
+                  300000,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Homeworld Population: ",
+                300000,
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "Mark Hammersmith2",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Mark Hammersmith
+</h3>,
+              <p>
+                Species: 
+                Human
+</p>,
+              <p>
+                Homeworld: 
+                Test
+</p>,
+              <p>
+                Homeworld Population: 
+                300000
+</p>,
+            ],
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Mark Hammersmith",
+              },
+              "ref": null,
+              "rendered": "Mark Hammersmith",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Species: ",
+                  "Human",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Species: ",
+                "Human",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Homeworld: ",
+                  "Test",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Homeworld: ",
+                "Test",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Homeworld Population: ",
+                  300000,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Homeworld Population: ",
+                300000,
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+      ],
       "type": "div",
     },
   ],

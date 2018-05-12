@@ -28,6 +28,16 @@ class App extends Component {
   getCrawl = async () => {
     try {
       const response = await fetch('https://swapi.co/api/films');
+      if (response.status !== 200) {
+        this.setState({
+          crawlData: [{
+            crawl: "We're so sorry, but something has gone incredibly wrong and we weren't able to fetch the data. :(",
+            episode: 'Oh no!',
+            release: "Just now",
+            title: "Error"
+          }]
+        });
+      }
       const crawlData = await response.json();
       this.setState({
         crawlData: filmsCleaner(crawlData)
@@ -48,6 +58,16 @@ class App extends Component {
   getStarships = async () => {
     try {
       const response = await fetch('https://swapi.co/api/starships');
+      if (response.status !== 200) {
+        this.setState({
+          cardData: [{
+            hyperdriveRating: ":(",
+            model: "Something went wrong",
+            name: "Oh no!",
+            numOfPassengers: "No data"
+          }]
+        });
+      }
       const starships = await response.json();
       this.setState({
         cardData: shipsCleaner(starships)
@@ -67,6 +87,16 @@ class App extends Component {
   getVehicles = async () => {
     try {
       const response = await fetch('https://swapi.co/api/vehicles');
+      if (response.status !== 200) {
+        this.setState({
+          cardData: [{
+            model: "Something went wrong",
+            name: "Oh no!",
+            numOfPassengers: "No data",
+            vehicleClass: ":("
+          }]
+        });
+      }
       const vehicles = await response.json();
       this.setState({
         cardData: vehiclesCleaner(vehicles)
@@ -110,7 +140,7 @@ class App extends Component {
       const url = person.homeworld;
       const response = await fetch(url);
       const homeworld = await response.json();
-      return {...person, homeworld: homeworld.name, population: homeworld.population}
+      return {...person, homeworld: homeworld.name, population: homeworld.population};
     });
     return Promise.all(homeworldInfo);
   }

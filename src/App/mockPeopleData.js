@@ -59,4 +59,4 @@ const mockCleanedPeople = [
   }
 ];
 
-export default {mockPeople, mockCleanedPeople};
+export { mockPeople, mockCleanedPeople };
