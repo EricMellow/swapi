@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow, mount } from 'enzyme';
 import mockCrawl from './mockCrawlData.js';
-import mockShip from './mockStarshipData.js';
-import mockVehicles from './mockVehiclesData';
+import { mockShip } from './mockStarshipData.js';
+import { mockVehicles } from './mockVehiclesData';
 
 describe('App', () => {
   let wrapper;

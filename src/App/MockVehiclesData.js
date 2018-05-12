@@ -32,20 +32,20 @@ const mockCleanedVehicles = [
     name: "Sand Crawler",
     model: "Digger Crawler",
     passengers: "30",
-    vehicle_class: "wheeled"
+    vehicleClass: "wheeled"
   },
   {
     name: "Kitt",
     model: "Trans Am",
     passengers: "2",
-    vehicle_class: "Knight Rider"
+    vehicleClass: "Knight Rider"
   },
   {
     name: "General Lee",
     model: "Charger",
     passengers: "2",
-    vehicle_class: "wheeled"
+    vehicleClass: "wheeled"
   }
 ];
 
-export default { mockVehicles, mockCleanedVehicles };
+export {mockVehicles, mockCleanedVehicles};

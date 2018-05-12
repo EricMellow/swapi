@@ -1,4 +1,4 @@
-const mockShips = {
+const mockShip = {
   "count": 37,
   "next": "https://swapi.co/api/starships/?page=2",
   "previous": null,
@@ -29,4 +29,25 @@ const mockShips = {
   ]
 };
 
-export default mockShips;
+const mockCleanedStarships = [
+  {
+    name: "Executor",
+    model: "Executor-class star dreadnought",
+    numOfPassengers: "38000",
+    hyperdriveRating: "2.0"
+  },
+  {
+    name: "Millenium Falcon",
+    model: "Cool Starship",
+    numOfPassengers: "6",
+    hyperdriveRating: "2.0"
+  },
+  {
+    name: "X-Wing",
+    model: "Fighter",
+    numOfPassengers: "0",
+    hyperdriveRating: "2.0"
+  }
+];
+
+export { mockShip, mockCleanedStarships };
