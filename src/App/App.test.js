@@ -301,8 +301,7 @@ describe('App', () => {
 
     it('should call fetch with the correct parameters', async () => {
       const mockSpeciesData = mockPeople.results;
-      const expected = ['https://swapi.co/api/species/1/'];
-
+      const expected = "https://swapi.co/api/planets/1/";
       await wrapper.instance().getHomeworld(mockSpeciesData);
 
       expect(window.fetch).toHaveBeenCalledWith(expected);
@@ -332,7 +331,7 @@ describe('App', () => {
         species: "Something went wrong"
       };
 
-      const actual = await wrapper.instance().getSpecies();
+      const actual = await wrapper.instance().getHomeworld();
 
       expect(actual).toEqual(expected);
     })

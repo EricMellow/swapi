@@ -143,13 +143,26 @@ class App extends Component {
   }
 
   getHomeworld = (people) => {
-    const homeworldInfo = people.map(async person => {
-      const url = person.homeworld;
-      const response = await fetch(url);
-      const homeworld = await response.json();
-      return {...person, homeworld: homeworld.name, population: homeworld.population};
-    });
-    return Promise.all(homeworldInfo);
+    try {
+      const homeworldInfo = people.map(async person => {
+        const url = person.homeworld;
+        const response = await fetch(url);
+        if (response.status !== 200) {
+          throw new Error('Status Error');
+        }
+        const homeworld = await response.json();
+        return {...person, homeworld: homeworld.name, population: homeworld.population};
+      });
+      return Promise.all(homeworldInfo);
+    }
+    catch (error) {
+      return {
+        homeworld: ":(",
+        name: "Oh no!",
+        population: "No data",
+        species: "Something went wrong"
+      };
+    }
   }
 
   getPlanets = async () => {
