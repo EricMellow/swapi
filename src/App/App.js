@@ -25,62 +25,157 @@ class App extends Component {
     }
   }
 
-  getCrawl = async () => {
-    const response = await fetch('https://swapi.co/api/films');
-    const crawlData = await response.json();
+  clearData() {
     this.setState({
-      crawlData: filmsCleaner(crawlData)
+      cardData: []
     });
+  }
+
+  getCrawl = async () => {
+    try {
+      const response = await fetch('https://swapi.co/api/films');
+      if (response.status !== 200) {
+        throw new Error('Status Error');
+      }
+      const crawlData = await response.json();
+      this.setState({
+        crawlData: filmsCleaner(crawlData)
+      });
+    }
+    catch (error) {
+      this.setState({
+        crawlData: [{
+          crawl: "We're so sorry, but something has gone incredibly wrong and we weren't able to fetch the data. :(",
+          episode: 'Oh no!',
+          release: "Just now",
+          title: "Error"
+        }]
+      });
+    }
   };
 
   getStarships = async () => {
-    const response = await fetch('https://swapi.co/api/starships');
-    const starships = await response.json();
-    this.setState({
-      cardData: shipsCleaner(starships)
-    });
+    this.clearData();
+    try {
+      const response = await fetch('https://swapi.co/api/starships');
+      if (response.status !== 200) {
+        throw new Error('Status Error');
+      }
+      const starships = await response.json();
+      this.setState({
+        cardData: shipsCleaner(starships)
+      });
+    }
+    catch (error) {
+      this.setState({
+        cardData: [{ 
+          hyperdriveRating: ":(", 
+          model: "Something went wrong", 
+          name: "Oh no!", 
+          numOfPassengers: "No data" }]
+      });
+    }
   }
 
   getVehicles = async () => {
-    const response = await fetch('https://swapi.co/api/vehicles');
-    const vehicles = await response.json();
-    this.setState({
-      cardData: vehiclesCleaner(vehicles)
-    });
+    this.clearData();
+    try {
+      const response = await fetch('https://swapi.co/api/vehicles');
+      if (response.status !== 200) {
+        throw new Error('Status Error');
+      }
+      const vehicles = await response.json();
+      this.setState({
+        cardData: vehiclesCleaner(vehicles)
+      });
+    }
+    catch (error){
+      this.setState({
+        cardData: [{
+          model: "Something went wrong",
+          name: "Oh no!",
+          numOfPassengers: "No data",
+          vehicleClass: ":("
+        }]
+      });
+    }
   }
 
   getPeople = async () => {
-    const response = await fetch('https://swapi.co/api/people');
-    const peopleData = await response.json();
-    const cleanedPeopleData = peopleCleaner(peopleData);
-    const peopleWithHomeworldData = await this.getHomeworld(cleanedPeopleData);
-    const people = await this.getSpecies(peopleWithHomeworldData);
-    this.setState({
-      cardData: people
-    });
+    this.clearData();
+    try {
+      const response = await fetch('https://swapi.co/api/people');
+      if (response.status !== 200) {
+        throw new Error('Status Error');
+      }
+      const peopleData = await response.json();
+      const cleanedPeopleData = peopleCleaner(peopleData);
+      const peopleWithHomeworldData = await this.getHomeworld(cleanedPeopleData);
+      const people = await this.getSpecies(peopleWithHomeworldData);
+      this.setState({
+        cardData: people
+      });
+    }
+    catch (error) {
+      this.setState({
+        cardData: [{
+          homeworld: ":(",
+          name: "Oh no!",
+          population: "No data",
+          species: "Something went wrong"
+        }]
+      });
+    }
   }
 
   getSpecies = (species) => {
-    const speciesInfo = species.map(async genus => {
-      const url = genus.species;
-      const response = await fetch(url);
-      const species = await response.json();
-      return {...genus, species: species.name};
-    });
-    return Promise.all(speciesInfo);
+    try {
+      const speciesInfo = species.map(async genus => {
+        const url = genus.species;
+        const response = await fetch(url);
+        if (response.status !== 200) {
+          throw new Error('Status Error');
+        }
+        const species = await response.json();
+        return {...genus, species: species.name};
+      });
+      return Promise.all(speciesInfo);
+    }
+    catch (error) {
+      return {
+        homeworld: ":(",
+        name: "Oh no!",
+        population: "No data",
+        species: "Something went wrong"
+      };
+    }
   }
 
   getHomeworld = (people) => {
-    const homeworldInfo = people.map(async person => {
-      const url = person.homeworld;
-      const response = await fetch(url);
-      const homeworld = await response.json();
-      return {...person, homeworld: homeworld.name, population: homeworld.population}
-    });
-    return Promise.all(homeworldInfo);
+    try {
+      const homeworldInfo = people.map(async person => {
+        const url = person.homeworld;
+        const response = await fetch(url);
+        if (response.status !== 200) {
+          throw new Error('Status Error');
+        }
+        const homeworld = await response.json();
+        return {...person, homeworld: homeworld.name, population: homeworld.population};
+      });
+      return Promise.all(homeworldInfo);
+    }
+    catch (error) {
+      return {
+        homeworld: ":(",
+        name: "Oh no!",
+        population: "No data",
+        species: "Something went wrong"
+      };
+    }
   }
 
   getPlanets = async () => {
+    this.clearData();
     const response = await fetch('https://swapi.co/api/planets');
     const planetData = await response.json();
     const cleanedPlanetData = planetsCleaner(planetData);

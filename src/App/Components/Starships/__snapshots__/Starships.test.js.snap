@@ -1,0 +1,843 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Starships should match the snapshot with error data 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Starships
+    cardData={
+        Array [
+            Object {
+              "hyperdriveRating": ":(",
+              "model": "Something went wrong",
+              "name": "Oh no!",
+              "numOfPassengers": "No data",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": false,
+      "className": "container",
+    },
+    "ref": null,
+    "rendered": false,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": false,
+        "className": "container",
+      },
+      "ref": null,
+      "rendered": false,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Starships should match the snapshot with good card data 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Starships
+    cardData={
+        Array [
+            Object {
+              "hyperdriveRating": "2.0",
+              "model": "Executor-class star dreadnought",
+              "name": "Executor",
+              "numOfPassengers": "38000",
+            },
+            Object {
+              "hyperdriveRating": "2.0",
+              "model": "Cool Starship",
+              "name": "Millenium Falcon",
+              "numOfPassengers": "6",
+            },
+            Object {
+              "hyperdriveRating": "2.0",
+              "model": "Fighter",
+              "name": "X-Wing",
+              "numOfPassengers": "0",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="card"
+>
+          <h3>
+                    Executor
+          </h3>
+          <p>
+                    Model: 
+                    Executor-class star dreadnought
+          </p>
+          <p>
+                    Hyperdrive Rating: 
+                    2.0
+          </p>
+          <p>
+                    Number of Passengers: 
+                    38000
+          </p>
+</div>,
+        <div
+          className="card"
+>
+          <h3>
+                    Millenium Falcon
+          </h3>
+          <p>
+                    Model: 
+                    Cool Starship
+          </p>
+          <p>
+                    Hyperdrive Rating: 
+                    2.0
+          </p>
+          <p>
+                    Number of Passengers: 
+                    6
+          </p>
+</div>,
+        <div
+          className="card"
+>
+          <h3>
+                    X-Wing
+          </h3>
+          <p>
+                    Model: 
+                    Fighter
+          </p>
+          <p>
+                    Hyperdrive Rating: 
+                    2.0
+          </p>
+          <p>
+                    Number of Passengers: 
+                    0
+          </p>
+</div>,
+      ],
+      "className": "container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "Executor0",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Executor
+</h3>,
+            <p>
+              Model: 
+              Executor-class star dreadnought
+</p>,
+            <p>
+              Hyperdrive Rating: 
+              2.0
+</p>,
+            <p>
+              Number of Passengers: 
+              38000
+</p>,
+          ],
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Executor",
+            },
+            "ref": null,
+            "rendered": "Executor",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Model: ",
+                "Executor-class star dreadnought",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Model: ",
+              "Executor-class star dreadnought",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Hyperdrive Rating: ",
+                "2.0",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Hyperdrive Rating: ",
+              "2.0",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Number of Passengers: ",
+                "38000",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Number of Passengers: ",
+              "38000",
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "Millenium Falcon1",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Millenium Falcon
+</h3>,
+            <p>
+              Model: 
+              Cool Starship
+</p>,
+            <p>
+              Hyperdrive Rating: 
+              2.0
+</p>,
+            <p>
+              Number of Passengers: 
+              6
+</p>,
+          ],
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Millenium Falcon",
+            },
+            "ref": null,
+            "rendered": "Millenium Falcon",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Model: ",
+                "Cool Starship",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Model: ",
+              "Cool Starship",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Hyperdrive Rating: ",
+                "2.0",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Hyperdrive Rating: ",
+              "2.0",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Number of Passengers: ",
+                "6",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Number of Passengers: ",
+              "6",
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "X-Wing2",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              X-Wing
+</h3>,
+            <p>
+              Model: 
+              Fighter
+</p>,
+            <p>
+              Hyperdrive Rating: 
+              2.0
+</p>,
+            <p>
+              Number of Passengers: 
+              0
+</p>,
+          ],
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "X-Wing",
+            },
+            "ref": null,
+            "rendered": "X-Wing",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Model: ",
+                "Fighter",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Model: ",
+              "Fighter",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Hyperdrive Rating: ",
+                "2.0",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Hyperdrive Rating: ",
+              "2.0",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Number of Passengers: ",
+                "0",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Number of Passengers: ",
+              "0",
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="card"
+>
+            <h3>
+                        Executor
+            </h3>
+            <p>
+                        Model: 
+                        Executor-class star dreadnought
+            </p>
+            <p>
+                        Hyperdrive Rating: 
+                        2.0
+            </p>
+            <p>
+                        Number of Passengers: 
+                        38000
+            </p>
+</div>,
+          <div
+            className="card"
+>
+            <h3>
+                        Millenium Falcon
+            </h3>
+            <p>
+                        Model: 
+                        Cool Starship
+            </p>
+            <p>
+                        Hyperdrive Rating: 
+                        2.0
+            </p>
+            <p>
+                        Number of Passengers: 
+                        6
+            </p>
+</div>,
+          <div
+            className="card"
+>
+            <h3>
+                        X-Wing
+            </h3>
+            <p>
+                        Model: 
+                        Fighter
+            </p>
+            <p>
+                        Hyperdrive Rating: 
+                        2.0
+            </p>
+            <p>
+                        Number of Passengers: 
+                        0
+            </p>
+</div>,
+        ],
+        "className": "container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "Executor0",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Executor
+</h3>,
+              <p>
+                Model: 
+                Executor-class star dreadnought
+</p>,
+              <p>
+                Hyperdrive Rating: 
+                2.0
+</p>,
+              <p>
+                Number of Passengers: 
+                38000
+</p>,
+            ],
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Executor",
+              },
+              "ref": null,
+              "rendered": "Executor",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Model: ",
+                  "Executor-class star dreadnought",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Model: ",
+                "Executor-class star dreadnought",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Hyperdrive Rating: ",
+                  "2.0",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Hyperdrive Rating: ",
+                "2.0",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Number of Passengers: ",
+                  "38000",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Number of Passengers: ",
+                "38000",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "Millenium Falcon1",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Millenium Falcon
+</h3>,
+              <p>
+                Model: 
+                Cool Starship
+</p>,
+              <p>
+                Hyperdrive Rating: 
+                2.0
+</p>,
+              <p>
+                Number of Passengers: 
+                6
+</p>,
+            ],
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Millenium Falcon",
+              },
+              "ref": null,
+              "rendered": "Millenium Falcon",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Model: ",
+                  "Cool Starship",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Model: ",
+                "Cool Starship",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Hyperdrive Rating: ",
+                  "2.0",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Hyperdrive Rating: ",
+                "2.0",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Number of Passengers: ",
+                  "6",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Number of Passengers: ",
+                "6",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "X-Wing2",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                X-Wing
+</h3>,
+              <p>
+                Model: 
+                Fighter
+</p>,
+              <p>
+                Hyperdrive Rating: 
+                2.0
+</p>,
+              <p>
+                Number of Passengers: 
+                0
+</p>,
+            ],
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "X-Wing",
+              },
+              "ref": null,
+              "rendered": "X-Wing",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Model: ",
+                  "Fighter",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Model: ",
+                "Fighter",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Hyperdrive Rating: ",
+                  "2.0",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Hyperdrive Rating: ",
+                "2.0",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Number of Passengers: ",
+                  "0",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Number of Passengers: ",
+                "0",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Starships should match the snapshot with no data 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Starships />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": false,
+      "className": "container",
+    },
+    "ref": null,
+    "rendered": false,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": false,
+        "className": "container",
+      },
+      "ref": null,
+      "rendered": false,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
