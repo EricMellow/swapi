@@ -203,10 +203,21 @@ class App extends Component {
     return Promise.all(names);
   }
 
-  toggleFavorite = (person) => {
-    this.setState({
-      favorites: [...this.state.favorites, person]
-    })
+  toggleFavorite = (cardInfo) => {
+    const findCard = this.state.favorites.map(favorite => {
+      return favorite.id === cardInfo.id;
+    });
+    console.log(findCard)
+    if (this.state.favorites.length === 0) {
+      this.setState({
+        favorites: [...this.state.favorites, cardInfo]
+      });
+    }
+    if (!findCard.includes(true)) {
+      this.setState({
+        favorites: [...this.state.favorites, cardInfo]
+      });
+    }
   }
 
   render() {
