@@ -48,4 +48,4 @@ const mockCleanedVehicles = [
   }
 ];
 
-export {mockVehicles, mockCleanedVehicles};
+export { mockVehicles, mockCleanedVehicles };

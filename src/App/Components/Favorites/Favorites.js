@@ -6,7 +6,6 @@ const Favorites = ({ favorites, toggleFavorite }) => {
   if (favorites) {
     favoriteCards = favorites.map((favorite, index) => {
       let switchCase = favorite.type;
-      console.log(switchCase)
       if (switchCase === 'ship') {
         switchCase = (
           <div key={favorite.name + index} className="card">

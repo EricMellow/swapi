@@ -85,7 +85,7 @@ describe('App', () => {
     });
 
     it('should call fetch with the correct params and set the fetch to the cardData in state', async () => {
-      const expected = [{ "hyperdriveRating": "2.0", "model": "Executor-class star dreadnought", "name": "Executor", "numOfPassengers": "38000" }]
+      const expected = [{ "hyperdriveRating": "2.0", "id": "Executor0", "model": "Executor-class star dreadnought", "name": "Executor", "numOfPassengers": "38000", "type": "ship" }];
 
       await wrapper.instance().getStarships();
 
@@ -132,11 +132,7 @@ describe('App', () => {
     });
 
     it('should call fetch with the correct params and set the fetch data to cardData in state', async () => {
-      const expected = [{
-        model: "Digger Crawler", 
-        name: "Sand Crawler", 
-        numOfPassengers: "30", 
-        vehicleClass: "wheeled"}];
+      const expected = [{ "id": "Sand Crawler0", "model": "Digger Crawler", "name": "Sand Crawler", "numOfPassengers": "30", "type": "vehicle", "vehicleClass": "wheeled" }];
 
       await wrapper.instance().getVehicles();
 
@@ -187,11 +183,7 @@ describe('App', () => {
       wrapper.getSpecies = jest.fn();
       const spy = jest.spyOn(wrapper.instance(), 'getHomeworld');
       
-      const expected = [{ 
-        homeworld: "https://swapi.co/api/planets/1/", 
-        name: "Luke Skywalker", 
-        population: 0, 
-        species: "https://swapi.co/api/species/1/" }];
+      const expected = [{ "homeworld": "https://swapi.co/api/planets/1/", "id": "Luke Skywalker0", "name": "Luke Skywalker", "population": 0, "species": "https://swapi.co/api/species/1/", "type": "person" }];
 
       await wrapper.instance().getPeople();
 
@@ -201,12 +193,7 @@ describe('App', () => {
     it('should call getSpecies with the correct parameters', async () => {
       const spy = jest.spyOn(wrapper.instance(), 'getSpecies');
 
-      const expected = [{
-        homeworld: undefined,
-        name: "Luke Skywalker",
-        population: undefined,
-        species: "https://swapi.co/api/species/1/"
-      }];
+      const expected = [{ "homeworld": undefined, "id": "Luke Skywalker0", "name": "Luke Skywalker", "population": undefined, "species": "https://swapi.co/api/species/1/", "type": "person" }];
 
       await wrapper.instance().getPeople();
 
