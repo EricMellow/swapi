@@ -1,6 +1,5 @@
 import React from 'react';
 import Favorites from './Favorites';
-import { mockCleanedPeople } from '../../mockPeopleData';
 import { shallow } from 'enzyme';
 
 describe('People', () => {
@@ -30,7 +29,7 @@ describe('People', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should match the snapshot with correst planet data', () => {
+  it('should match the snapshot with correct planet data', () => {
     const mockData = [{
       id: 'Mr. Planet1',
       name: 'Mr Planet',
@@ -45,7 +44,8 @@ describe('People', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
-  it('should match the snapshot with correst starship data', () => {
+  
+  it('should match the snapshot with correct starship data', () => {
     const mockData = [{
       id: 'Mr. Ship1',
       name: 'Mr. Ship',
@@ -53,6 +53,20 @@ describe('People', () => {
       hyperdriveRating: 3,
       numOfPassengers: 2,
       type: 'ship'
+    }];
+
+    wrapper = shallow(<Favorites cardData={mockData} />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('should match the snapshot with correct vehicle data', () => {
+    const mockData = [{
+      id: 'Mr. Car1',
+      name: 'Mr Car',
+      model: "Kate Moss",
+      vehicleClass: "Mod 3",
+      numOfPassengers: 2,
+      type: 'vehicle'
     }];
 
     wrapper = shallow(<Favorites cardData={mockData} />);
