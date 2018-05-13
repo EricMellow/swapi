@@ -205,7 +205,7 @@ class App extends Component {
   render() {
     if (!this.state.crawlData.length) {
       return (
-        <p>please wait</p>
+        <p className="access">Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.</p>
       );
     }
     return (

@@ -19,6 +19,7 @@ const Vehicle = ({cardData}) => {
 
   return (
     <div className="container">
+      {vehicleCards.length === 0 && <div className="wait">Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.</div>}
       {vehicleCards.length > 1 && vehicleCards}
     </div>
   );

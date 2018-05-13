@@ -11,6 +11,14 @@
   overflow-y: scroll;
 }
 
+.wait {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 45px;
+  text-align: center;
+  margin-top: 30px;
+  width: 80%;
+}
+
 .card {
   width: 220px;
   height: 275px;
