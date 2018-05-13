@@ -1,13 +1,14 @@
 import React from 'react';
 import './Starships.css';
 
-const Starships = ({cardData}) => {
+const Starships = ({ cardData, toggleFavorite }) => {
   let starshipCards = [];
   if (cardData) {
     starshipCards = cardData.map((starship, index) => {
       return (
         <div key={starship.name + index} className="card">
           <h3>{starship.name}</h3>
+          <button className="fav" onClick={() => toggleFavorite(starship)}></button>
           <p>Model: {starship.model}</p>
           <p>Hyperdrive Rating: {starship.hyperdriveRating}</p>
           <p>Number of Passengers: {starship.numOfPassengers}</p>

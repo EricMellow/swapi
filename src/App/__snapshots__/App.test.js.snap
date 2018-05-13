@@ -17,10 +17,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "please wait",
+      "children": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
+      "className": "access",
     },
     "ref": null,
-    "rendered": "please wait",
+    "rendered": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
     "type": "p",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -29,10 +30,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "please wait",
+        "children": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
+        "className": "access",
       },
       "ref": null,
-      "rendered": "please wait",
+      "rendered": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
       "type": "p",
     },
   ],

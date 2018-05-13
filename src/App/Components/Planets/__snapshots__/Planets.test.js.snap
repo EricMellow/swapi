@@ -29,11 +29,17 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": false,
+      "children": Array [
+        false,
+        false,
+      ],
       "className": "container",
     },
     "ref": null,
-    "rendered": false,
+    "rendered": Array [
+      false,
+      false,
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -42,11 +48,17 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": false,
+        "children": Array [
+          false,
+          false,
+        ],
         "className": "container",
       },
       "ref": null,
-      "rendered": false,
+      "rendered": Array [
+        false,
+        false,
+      ],
       "type": "div",
     },
   ],
@@ -79,11 +91,32 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": false,
+      "children": Array [
+        <div
+          className="wait"
+>
+          Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.
+</div>,
+        false,
+      ],
       "className": "container",
     },
     "ref": null,
-    "rendered": false,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
+          "className": "wait",
+        },
+        "ref": null,
+        "rendered": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
+        "type": "div",
+      },
+      false,
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -92,11 +125,32 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": false,
+        "children": Array [
+          <div
+            className="wait"
+>
+            Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.
+</div>,
+          false,
+        ],
         "className": "container",
       },
       "ref": null,
-      "rendered": false,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
+            "className": "wait",
+          },
+          "ref": null,
+          "rendered": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
+          "type": "div",
+        },
+        false,
+      ],
       "type": "div",
     },
   ],
@@ -127,11 +181,32 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": false,
+      "children": Array [
+        <div
+          className="wait"
+>
+          Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.
+</div>,
+        false,
+      ],
       "className": "container",
     },
     "ref": null,
-    "rendered": false,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
+          "className": "wait",
+        },
+        "ref": null,
+        "rendered": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
+        "type": "div",
+      },
+      false,
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -140,11 +215,32 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": false,
+        "children": Array [
+          <div
+            className="wait"
+>
+            Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.
+</div>,
+          false,
+        ],
         "className": "container",
       },
       "ref": null,
-      "rendered": false,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
+            "className": "wait",
+          },
+          "ref": null,
+          "rendered": "Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.",
+          "type": "div",
+        },
+        false,
+      ],
       "type": "div",
     },
   ],

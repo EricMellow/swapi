@@ -7,6 +7,7 @@ import People from './Components/People/People.js';
 import Planets from './Components/Planets/Planets.js';
 import Vehicles from './Components/Vehicles/Vehicles.js';
 import Starships from './Components/Starships/Starships.js';
+import Favorites from './Components/Favorites/Favorites.js';
 import { NavLink, Route, Link } from 'react-router-dom';
 
 class App extends Component {
@@ -202,6 +203,31 @@ class App extends Component {
     return Promise.all(names);
   }
 
+  toggleFavorite = (cardInfo) => {
+    const findCard = this.state.favorites.map(favorite => {
+      return favorite.id === cardInfo.id;
+    });
+    console.log(findCard)
+    if (this.state.favorites.length === 0) {
+      this.setState({
+        favorites: [...this.state.favorites, cardInfo]
+      });
+    }
+    if (!findCard.includes(true)) {
+      this.setState({
+        favorites: [...this.state.favorites, cardInfo]
+      });
+    } 
+    if (findCard.includes(true)) {
+      const newFavorites = this.state.favorites.filter(favorite => {
+        return favorite.id !== cardInfo.id;
+      });
+      this.setState({
+        favorites: newFavorites
+      });
+    }
+  }
+
   render() {
     if (!this.state.crawlData.length) {
       return (
@@ -212,7 +238,8 @@ class App extends Component {
       <div className="background">
         <header className="App-header">
           <h1 className="App-title">SWAPI UNIVERSE</h1>
-          <button className="button">View Favorites {this.state.favorites.length}</button>
+          <NavLink to='/favorites' className="button" >View Favorites {this.state.favorites.length}</NavLink>
+          {/* <button className="button">View Favorites {this.state.favorites.length}</button> */}
         </header>
         <ButtonContainer 
           getPeople={this.getPeople}
@@ -224,16 +251,34 @@ class App extends Component {
           <Crawl crawlData={this.state.crawlData} />
         )} />
         <Route exact path='/people' render={ () => {
-          return <People cardData={this.state.cardData} />;
+          return <People 
+            toggleFavorite={this.toggleFavorite}
+            cardData={this.state.cardData}
+          />;
         }} />
         <Route exact path='/planets' render={() => {
-          return <Planets cardData={this.state.cardData} />;
+          return <Planets 
+            toggleFavorite={this.toggleFavorite}
+            cardData={this.state.cardData} 
+          />;
         }} />
         <Route exact path='/vehicles' render={() => {
-          return <Vehicles cardData={this.state.cardData} />;
+          return <Vehicles 
+            toggleFavorite={this.toggleFavorite}
+            cardData={this.state.cardData} 
+          />;
         }} />
         <Route exact path='/starships' render={() => {
-          return <Starships cardData={this.state.cardData} />;
+          return <Starships 
+            toggleFavorite={this.toggleFavorite}
+            cardData={this.state.cardData}
+          />;
+        }} />
+        <Route exact path='/favorites' render={() => {
+          return <Favorites
+            toggleFavorite={this.toggleFavorite}
+            favorites={this.state.favorites}
+          />;
         }} />
       </div>
     );

@@ -1,13 +1,14 @@
 import React from 'react';
 import './Planets.css';
 
-const Planets = ({cardData}) => {
+const Planets = ({ cardData, toggleFavorite}) => {
   let planetCards = [];
   if (cardData) {
     planetCards = cardData.map((planet, index) => {
       return (
         <div key={planet.name + index} className="card">
           <h3>{planet.name}</h3>
+          <button className="fav" onClick={() => toggleFavorite(planet)}></button>
           <p>Terrain: {planet.terrain}</p>
           <p>Climate: {planet.climate}</p>
           <p>Population: {planet.population}</p>
