@@ -217,6 +217,14 @@ class App extends Component {
       this.setState({
         favorites: [...this.state.favorites, cardInfo]
       });
+    } 
+    if (findCard.includes(true)) {
+      const newFavorites = this.state.favorites.filter(favorite => {
+        return favorite.id !== cardInfo.id;
+      });
+      this.setState({
+        favorites: newFavorites
+      });
     }
   }
 
