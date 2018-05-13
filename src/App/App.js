@@ -202,6 +202,10 @@ class App extends Component {
     return Promise.all(names);
   }
 
+  toggleFavorite = () => {
+    
+  }
+
   render() {
     if (!this.state.crawlData.length) {
       return (

@@ -8,6 +8,7 @@ const People = ({cardData}) => {
       return (
         <div key={person.name + index} className="card">
           <h3>{person.name}</h3>
+          <button className="fav"></button>
           <p>Species: {person.species}</p>
           <p>Homeworld: {person.homeworld}</p>
           <p>Homeworld Population: {person.population}</p>

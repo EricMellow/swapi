@@ -8,6 +8,7 @@ const Planets = ({cardData}) => {
       return (
         <div key={planet.name + index} className="card">
           <h3>{planet.name}</h3>
+          <button className="fav"></button>
           <p>Terrain: {planet.terrain}</p>
           <p>Climate: {planet.climate}</p>
           <p>Population: {planet.population}</p>

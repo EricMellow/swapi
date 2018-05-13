@@ -8,6 +8,7 @@ const Starships = ({cardData}) => {
       return (
         <div key={starship.name + index} className="card">
           <h3>{starship.name}</h3>
+          <button className="fav"></button>
           <p>Model: {starship.model}</p>
           <p>Hyperdrive Rating: {starship.hyperdriveRating}</p>
           <p>Number of Passengers: {starship.numOfPassengers}</p>

@@ -8,6 +8,7 @@ const Vehicle = ({cardData}) => {
       return (
         <div key={vehicle.name + index} className="card">
           <h3>{vehicle.name}</h3>
+          <button className="fav"></button>
           <p>Model: {vehicle.model}</p>
           <p>Class: {vehicle.vehicleClass}</p>
           <p>Number of Passengers: {vehicle.numOfPassengers}</p>
