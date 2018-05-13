@@ -202,8 +202,10 @@ class App extends Component {
     return Promise.all(names);
   }
 
-  toggleFavorite = () => {
-    
+  toggleFavorite = (person) => {
+    this.setState({
+      favorites: [...this.state.favorites, person]
+    })
   }
 
   render() {
@@ -228,10 +230,16 @@ class App extends Component {
           <Crawl crawlData={this.state.crawlData} />
         )} />
         <Route exact path='/people' render={ () => {
-          return <People cardData={this.state.cardData} />;
+          return <People 
+            toggleFavorite={this.toggleFavorite}
+            cardData={this.state.cardData}
+          />;
         }} />
         <Route exact path='/planets' render={() => {
-          return <Planets cardData={this.state.cardData} />;
+          return <Planets 
+            toggleFavorite={this.toggleFavorite}
+            cardData={this.state.cardData} 
+          />;
         }} />
         <Route exact path='/vehicles' render={() => {
           return <Vehicles cardData={this.state.cardData} />;
