@@ -7,6 +7,7 @@ import People from './Components/People/People.js';
 import Planets from './Components/Planets/Planets.js';
 import Vehicles from './Components/Vehicles/Vehicles.js';
 import Starships from './Components/Starships/Starships.js';
+import Favorites from './Components/Favorites/Favorites.js';
 import { NavLink, Route, Link } from 'react-router-dom';
 
 class App extends Component {
@@ -218,7 +219,8 @@ class App extends Component {
       <div className="background">
         <header className="App-header">
           <h1 className="App-title">SWAPI UNIVERSE</h1>
-          <button className="button">View Favorites {this.state.favorites.length}</button>
+          <NavLink to='/favorites' className="button" >View Favorites {this.state.favorites.length}</NavLink>
+          {/* <button className="button">View Favorites {this.state.favorites.length}</button> */}
         </header>
         <ButtonContainer 
           getPeople={this.getPeople}
@@ -242,10 +244,22 @@ class App extends Component {
           />;
         }} />
         <Route exact path='/vehicles' render={() => {
-          return <Vehicles cardData={this.state.cardData} />;
+          return <Vehicles 
+            toggleFavorite={this.toggleFavorite}
+            cardData={this.state.cardData} 
+          />;
         }} />
         <Route exact path='/starships' render={() => {
-          return <Starships cardData={this.state.cardData} />;
+          return <Starships 
+            toggleFavorite={this.toggleFavorite}
+            cardData={this.state.cardData}
+          />;
+        }} />
+        <Route exact path='/favorites' render={() => {
+          return <Favorites
+            toggleFavorite={this.toggleFavorite}
+            favorites={this.state.favorites}
+          />;
         }} />
       </div>
     );

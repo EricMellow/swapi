@@ -1,14 +1,14 @@
 import React from 'react';
 import './Vehicles.css';
 
-const Vehicle = ({cardData}) => {
+const Vehicle = ({ cardData, toggleFavorite }) => {
   let vehicleCards = [];
   if (cardData) {
     vehicleCards = cardData.map((vehicle, index) => {
       return (
         <div key={vehicle.name + index} className="card">
           <h3>{vehicle.name}</h3>
-          <button className="fav"></button>
+          <button className="fav" onClick={() => toggleFavorite(vehicle)}></button>
           <p>Model: {vehicle.model}</p>
           <p>Class: {vehicle.vehicleClass}</p>
           <p>Number of Passengers: {vehicle.numOfPassengers}</p>

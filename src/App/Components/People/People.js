@@ -1,7 +1,7 @@
 import React from 'react';
 import './People.css';
 
-const People = ({ cardData, toggleFavorite}) => {
+const People = ({ cardData, toggleFavorite }) => {
   let peopleCards = [];
   if (cardData){
     peopleCards = cardData.map((person, index) => {
