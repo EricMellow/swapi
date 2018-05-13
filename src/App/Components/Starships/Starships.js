@@ -19,6 +19,7 @@ const Starships = ({cardData}) => {
 
   return (
     <div className="container">
+      {starshipCards.length === 0 && <div className="wait">Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.</div>}
       {starshipCards.length > 1 && starshipCards}
     </div>
   );

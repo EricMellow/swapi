@@ -1,7 +1,9 @@
 .button {
-  width: 150px;
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 700;
+  width: 175px;
   height: 50px;
-  color: black;
+  color: #882233;
   border-radius: 3px;
   margin: 0 20px;
   background-color: #eebb66;

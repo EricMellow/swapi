@@ -15,9 +15,26 @@
   justify-content: center;
 }
 
+.access {
+  font-size: 76px;
+  font-family: 'Orbitron', sans-serif;
+  background-image: url(/static/media/background.3e351db2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 85vh;
+  margin: 0;
+  padding: 40px;
+  padding-top: 100px;
+  text-align: center;
+}
+
 .App-title {
-  font-size: 1.5em;
+  font-size: 4.5em;
+  font-weight: 700;
+  font-family: 'Gothic A1', sans-serif;
   margin: 0 auto;
+  color: #882233;
+  text-shadow: 0px 0px 5px #eebb66;
   display: inline-block;
 }
 

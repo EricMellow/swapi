@@ -20,6 +20,7 @@ const Planets = ({cardData}) => {
 
   return (
     <div className="container">
+      {planetCards.length === 0 && <div className="wait">Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.</div>}
       {planetCards.length > 1 && planetCards}
     </div>
   );
