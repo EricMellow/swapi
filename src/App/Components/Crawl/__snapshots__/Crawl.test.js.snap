@@ -77,7 +77,7 @@ ShallowWrapper {
                                 Episode 
                         </h1>
                         <h1>
-                                A New Hope
+                                A New Tommy Cornelius
                         </h1>
                 </div>
                 <p
@@ -107,7 +107,7 @@ ShallowWrapper {
                               Episode 
                     </h1>
                     <h1>
-                              A New Hope
+                              A New Tommy Cornelius
                     </h1>
           </div>
           <p
@@ -135,7 +135,7 @@ ShallowWrapper {
                             Episode 
               </h1>
               <h1>
-                            A New Hope
+                            A New Tommy Cornelius
               </h1>
 </div>,
             <p
@@ -161,7 +161,7 @@ ShallowWrapper {
                   Episode 
 </h1>,
                 <h1>
-                  A New Hope
+                  A New Tommy Cornelius
 </h1>,
               ],
               "className": "title",
@@ -190,10 +190,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "A New Hope",
+                  "children": "A New Tommy Cornelius",
                 },
                 "ref": null,
-                "rendered": "A New Hope",
+                "rendered": "A New Tommy Cornelius",
                 "type": "h1",
               },
             ],
@@ -255,7 +255,7 @@ ShallowWrapper {
                                         Episode 
                               </h1>
                               <h1>
-                                        A New Hope
+                                        A New Tommy Cornelius
                               </h1>
                     </div>
                     <p
@@ -285,7 +285,7 @@ ShallowWrapper {
                                     Episode 
                         </h1>
                         <h1>
-                                    A New Hope
+                                    A New Tommy Cornelius
                         </h1>
             </div>
             <p
@@ -313,7 +313,7 @@ ShallowWrapper {
                                 Episode 
                 </h1>
                 <h1>
-                                A New Hope
+                                A New Tommy Cornelius
                 </h1>
 </div>,
               <p
@@ -339,7 +339,7 @@ ShallowWrapper {
                     Episode 
 </h1>,
                   <h1>
-                    A New Hope
+                    A New Tommy Cornelius
 </h1>,
                 ],
                 "className": "title",
@@ -368,10 +368,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "A New Hope",
+                    "children": "A New Tommy Cornelius",
                   },
                   "ref": null,
-                  "rendered": "A New Hope",
+                  "rendered": "A New Tommy Cornelius",
                   "type": "h1",
                 },
               ],

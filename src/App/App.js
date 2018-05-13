@@ -25,6 +25,12 @@ class App extends Component {
     }
   }
 
+  clearData() {
+    this.setState({
+      cardData: []
+    });
+  }
+
   getCrawl = async () => {
     try {
       const response = await fetch('https://swapi.co/api/films');
@@ -49,6 +55,7 @@ class App extends Component {
   };
 
   getStarships = async () => {
+    this.clearData();
     try {
       const response = await fetch('https://swapi.co/api/starships');
       if (response.status !== 200) {
@@ -71,6 +78,7 @@ class App extends Component {
   }
 
   getVehicles = async () => {
+    this.clearData();
     try {
       const response = await fetch('https://swapi.co/api/vehicles');
       if (response.status !== 200) {
@@ -94,6 +102,7 @@ class App extends Component {
   }
 
   getPeople = async () => {
+    this.clearData();
     try {
       const response = await fetch('https://swapi.co/api/people');
       if (response.status !== 200) {
@@ -166,6 +175,7 @@ class App extends Component {
   }
 
   getPlanets = async () => {
+    this.clearData();
     const response = await fetch('https://swapi.co/api/planets');
     const planetData = await response.json();
     const cleanedPlanetData = planetsCleaner(planetData);

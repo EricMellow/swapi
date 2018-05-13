@@ -14,11 +14,11 @@ const People = ({cardData}) => {
         </div>
       );
     });
-
   }
 
   return (
     <div className="container">
+      {peopleCards.length === 0 && <div className="wait">Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.</div>}
       {peopleCards.length > 1 && peopleCards}
     </div>
   );
