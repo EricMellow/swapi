@@ -1,13 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { mockCrawl } from './mockCrawlData.js';
 import { mockShip } from './mockStarshipData.js';
 import { mockVehicles } from './mockVehiclesData';
 import { mockPeople, mockCleanedPeople} from './mockPeopleData';
 import { mockPlanet, mockCleanedPlanets } from './mockPlanetData';
-import { peopleCleaner, planetsCleaner, filmsCleaner, shipsCleaner, vehiclesCleaner } from '../cleaners.js';
 
 describe('App', () => {
   let wrapper;
@@ -83,7 +81,7 @@ describe('App', () => {
       wrapper = shallow(<App />);
       wrapper.componentDidMount = jest.fn();
       const mockShipData = mockShip;
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve(mockShipData), status: 200}))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve(mockShipData), status: 200}));
     });
 
     it('should call fetch with the correct params and set the fetch to the cardData in state', async () => {
@@ -95,7 +93,7 @@ describe('App', () => {
     });
 
     it('should set cardData in state with a single error message object if the fetch status is not 200', async () => {
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: jest.fn(), status: 408}))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: jest.fn(), status: 408}));
       const expected = [{
         hyperdriveRating: ":(",
         model: "Something went wrong",
@@ -130,7 +128,7 @@ describe('App', () => {
       wrapper = shallow(<App />)
       wrapper.componentDidMount = jest.fn();
       const mockVehiclesData = mockVehicles;
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve(mockVehiclesData), status: 200}))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve(mockVehiclesData), status: 200}));
     });
 
     it('should call fetch with the correct params and set the fetch data to cardData in state', async () => {
@@ -152,7 +150,7 @@ describe('App', () => {
 
       await wrapper.instance().getVehicles();
 
-      expect(wrapper.state('cardData')).toEqual(expected)
+      expect(wrapper.state('cardData')).toEqual(expected);
     });
 
     it('should set cardData in state with a single error message object if the fetch fails', async () => {
@@ -175,10 +173,8 @@ describe('App', () => {
 
     beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve(mockPeople), status: 200}));
-      wrapper = shallow(<App />)
+      wrapper = shallow(<App />);
       wrapper.componentDidMount = jest.fn();
-      const mockData = mockPeople;
-
     });
 
     it('should call getHomeworld with the correct parameters', async () => {
@@ -227,7 +223,7 @@ describe('App', () => {
 
       await wrapper.instance().getPeople();
 
-      expect(wrapper.state('cardData')).toEqual(expected)
+      expect(wrapper.state('cardData')).toEqual(expected);
     });
   });
 
@@ -235,10 +231,9 @@ describe('App', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallow(<App />)
-      const mockData = mockCleanedPeople
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve(mockCleanedPeople), status: 200}))
-    })
+      wrapper = shallow(<App />);
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve(mockCleanedPeople), status: 200}));
+    });
     
     it('should call fetch with the correct parameters', async () => {
       const mockSpeciesData = mockPeople.results;
@@ -276,17 +271,16 @@ describe('App', () => {
       const actual = await wrapper.instance().getSpecies();
 
       expect(actual).toEqual(expected);
-    })
+    });
   });
 
   describe('getHomeworld', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallow(<App />)
-      const mockData = mockCleanedPeople
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockCleanedPeople), status: 200 }))
-    })
+      wrapper = shallow(<App />);
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockCleanedPeople), status: 200 }));
+    });
 
     it('should call fetch with the correct parameters', async () => {
       const mockSpeciesData = mockPeople.results;
@@ -330,10 +324,9 @@ describe('App', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallow(<App />)
-      const mockData = mockCleanedPlanets
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockPlanet), status: 200 }))
-    })
+      wrapper = shallow(<App />);
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockPlanet), status: 200 }));
+    });
 
     it('should call fetch with the correct parameters and set the cardData in state', async () => {
       wrapper.getResidents = jest.fn();
@@ -384,17 +377,17 @@ describe('App', () => {
       await wrapper.instance().getPlanets();
 
       expect(wrapper.state('cardData')).toEqual(expected);
-    })
+    });
   });
 
   describe('getResidents', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallow(<App />)
+      wrapper = shallow(<App />);
       const mockData = mockCleanedPlanets;
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockData), status: 200 }))
-    })
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockData), status: 200 }));
+    });
 
     it('should call fetch with the correct parameters', async () => {
       const mockPlanetData = mockPlanet.results;
@@ -446,10 +439,10 @@ describe('App', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallow(<App />)
+      wrapper = shallow(<App />);
       const mockData = mockCleanedPlanets;
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockData), status: 200 }))
-    })
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockData), status: 200 }));
+    });
 
     it('should call fetch with the correct parameters', async () => {
       const mockData = ["https://swapi.co/api/people/81/"];
@@ -507,7 +500,7 @@ describe('App', () => {
         population: 3,
         type: 'person'
       };
-      wrapper = shallow(<App />)
+      wrapper = shallow(<App />);
     });
 
     it('should add the card to favorites in state if it is not currently in the array', () => {
@@ -521,15 +514,15 @@ describe('App', () => {
         "being", 
         "type": 
         "person" }, 
-        { 
-          "homeworld": 
-          "World", "id": 
-          "Mr. Person1", 
-          "name": "Mr. Person", 
-          "population": 3, 
-          "species": "being", 
-          "type": "person" 
-        }
+      { 
+        "homeworld": 
+        "World", "id": 
+        "Mr. Person1", 
+        "name": "Mr. Person", 
+        "population": 3, 
+        "species": "being", 
+        "type": "person" 
+      }
       ];
 
       wrapper.setState({

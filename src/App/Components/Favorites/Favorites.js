@@ -1,5 +1,6 @@
 import React from 'react';
 import './Favorites.css';
+import PropTypes from 'prop-types';
 
 const Favorites = ({ favorites, toggleFavorite }) => {
   let favoriteCards = [];
@@ -10,7 +11,10 @@ const Favorites = ({ favorites, toggleFavorite }) => {
         switchCase = (
           <div key={favorite.name + index} className="card">
             <h3>{favorite.name}</h3>
-            <button className="fav" onClick={() => toggleFavorite(favorite)}></button>
+            <button 
+              className="fav" 
+              onClick={() => toggleFavorite(favorite)}>
+            </button>
             <p>Model: {favorite.model}</p>
             <p>Hyperdrive Rating: {favorite.hyperdriveRating}</p>
             <p>Number of Passengers: {favorite.numOfPassengers}</p>
@@ -21,7 +25,10 @@ const Favorites = ({ favorites, toggleFavorite }) => {
         switchCase = (
           <div key={favorite.name + index} className="card">
             <h3>{favorite.name}</h3>
-            <button className="fav" onClick={() => toggleFavorite(favorite)}></button>
+            <button 
+              className="fav" 
+              onClick={() => toggleFavorite(favorite)}>
+            </button>
             <p>Terrain: {favorite.terrain}</p>
             <p>Climate: {favorite.climate}</p>
             <p>Population: {favorite.population}</p>
@@ -33,7 +40,10 @@ const Favorites = ({ favorites, toggleFavorite }) => {
         switchCase = (
           <div key={favorite.name + index} className="card">
             <h3>{favorite.name}</h3>
-            <button className="fav" onClick={() => toggleFavorite(favorite)}></button>
+            <button 
+              className="fav" 
+              onClick={() => toggleFavorite(favorite)}>
+            </button>
             <p>Model: {favorite.model}</p>
             <p>Class: {favorite.vehicleClass}</p>
             <p>Number of Passengers: {favorite.numOfPassengers}</p>
@@ -44,7 +54,10 @@ const Favorites = ({ favorites, toggleFavorite }) => {
         switchCase = (
           <div key={favorite.name + index} className="card">
             <h3>{favorite.name}</h3>
-            <button className="fav" onClick={() => toggleFavorite(favorite)}></button>
+            <button 
+              className="fav" 
+              onClick={() => toggleFavorite(favorite)}>
+            </button>
             <p>Species: {favorite.species}</p>
             <p>Homeworld: {favorite.homeworld}</p>
             <p>Homeworld Population: {favorite.population}</p>
@@ -57,10 +70,18 @@ const Favorites = ({ favorites, toggleFavorite }) => {
 
   return (
     <div className="container">
-      {favoriteCards.length === 0 && <div className="wait">Access code YT-1300. No favorites found.</div>}
+      {favoriteCards.length === 0 && <div 
+        className="wait">
+        Access code YT-1300. No favorites found.
+      </div>}
       {favoriteCards.length > 0 && favoriteCards}
     </div>
   );
+};
+
+Favorites.propTypes = {
+  favorites: PropTypes.array,
+  toggleFavorite: PropTypes.func
 };
 
 export default Favorites;

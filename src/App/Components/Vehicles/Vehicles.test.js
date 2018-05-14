@@ -18,7 +18,7 @@ describe('Vehicles', () => {
 
   it('should match the snapshot with good card data', () => {
     const mockData = mockCleanedVehicles;
-    wrapper = shallow(<Vehicles cardData={mockData} />)
+    wrapper = shallow(<Vehicles cardData={mockData} />);
 
     expect(wrapper).toMatchSnapshot();
   });

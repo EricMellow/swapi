@@ -9,7 +9,10 @@ const People = ({ cardData, toggleFavorite }) => {
       return (
         <div key={person.name + index} className="card">
           <h3>{person.name}</h3>
-          <button className="fav" onClick={() => toggleFavorite(person)}></button>
+          <button 
+            className="fav" 
+            onClick={() => toggleFavorite(person)}>
+          </button>
           <p>Species: {person.species}</p>
           <p>Homeworld: {person.homeworld}</p>
           <p>Homeworld Population: {person.population}</p>
@@ -20,7 +23,10 @@ const People = ({ cardData, toggleFavorite }) => {
 
   return (
     <div className="container">
-      {peopleCards.length === 0 && <div className="wait">Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.</div>}
+      {peopleCards.length === 0 && <div 
+        className="wait">
+      Access code YT-1300. Retreiving your SWAPIBOX experience. Please Wait.
+      </div>}
       {peopleCards.length > 1 && peopleCards}
     </div>
   );

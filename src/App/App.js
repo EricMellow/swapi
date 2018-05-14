@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import { peopleCleaner, planetsCleaner, filmsCleaner, shipsCleaner, vehiclesCleaner } from '../cleaners.js';
+import { 
+  peopleCleaner, 
+  planetsCleaner, 
+  filmsCleaner, 
+  shipsCleaner, 
+  vehiclesCleaner } 
+  from '../cleaners.js';
 import ButtonContainer from './Components/ButtonContainer/ButtonContainer.js';
 import Crawl from './Components/Crawl/Crawl.js';
 import People from './Components/People/People.js';
@@ -8,7 +14,7 @@ import Planets from './Components/Planets/Planets.js';
 import Vehicles from './Components/Vehicles/Vehicles.js';
 import Starships from './Components/Starships/Starships.js';
 import Favorites from './Components/Favorites/Favorites.js';
-import { NavLink, Route, Link } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -42,8 +48,7 @@ class App extends Component {
       this.setState({
         crawlData: filmsCleaner(crawlData)
       });
-    }
-    catch (error) {
+    } catch (error) {
       this.setState({
         crawlData: [{
           crawl: "We're so sorry, but something has gone incredibly wrong and we weren't able to fetch the data. :(",
@@ -66,8 +71,7 @@ class App extends Component {
       this.setState({
         cardData: shipsCleaner(starships)
       });
-    }
-    catch (error) {
+    } catch (error) {
       this.setState({
         cardData: [{ 
           hyperdriveRating: ":(", 
@@ -89,8 +93,7 @@ class App extends Component {
       this.setState({
         cardData: vehiclesCleaner(vehicles)
       });
-    }
-    catch (error){
+    } catch (error){
       this.setState({
         cardData: [{
           model: "Something went wrong",
@@ -116,8 +119,7 @@ class App extends Component {
       this.setState({
         cardData: people
       });
-    }
-    catch (error) {
+    } catch (error) {
       this.setState({
         cardData: [{
           homeworld: ":(",
@@ -141,8 +143,7 @@ class App extends Component {
         return {...genus, species: species.name};
       });
       return Promise.all(speciesInfo);
-    }
-    catch (error) {
+    } catch (error) {
       return {
         homeworld: ":(",
         name: "Oh no!",
@@ -164,8 +165,7 @@ class App extends Component {
         return {...person, homeworld: homeworld.name, population: homeworld.population};
       });
       return Promise.all(homeworldInfo);
-    }
-    catch (error) {
+    } catch (error) {
       return {
         homeworld: ":(",
         name: "Oh no!",
@@ -188,8 +188,7 @@ class App extends Component {
       this.setState({
         cardData: planets
       });
-    }
-    catch (error) {
+    } catch (error) {
       this.setState({
         cardData: [{
           name: "Oh no!",
@@ -207,8 +206,7 @@ class App extends Component {
       try {
         let residentNames = await this.fetchResidents(planet.residents);
         return {...planet, residents: residentNames};
-      }
-      catch (error) {
+      } catch (error) {
         return ({
           name: "Oh no!",
           climate: "Something went wrong",
@@ -227,15 +225,14 @@ class App extends Component {
         const response = await fetch(resident);
         const residentData = await response.json();
         return residentData.name;
-      }
-      catch (error) {
+      } catch (error) {
         return ({
           name: "Oh no!",
           climate: "Something went wrong",
           terrain: ":(",
           population: "No data",
           residents: 'No data'
-        })
+        });
       }
     });
     return Promise.all(names);
@@ -275,8 +272,11 @@ class App extends Component {
       <div className="background">
         <header className="App-header">
           <h1 className="App-title">SWAPI UNIVERSE</h1>
-          <NavLink to='/favorites' className="button" >View Favorites {this.state.favorites.length}</NavLink>
-          {/* <button className="button">View Favorites {this.state.favorites.length}</button> */}
+          <NavLink 
+            to='/favorites' 
+            className="button"
+          >View Favorites {this.state.favorites.length}
+          </NavLink>
         </header>
         <ButtonContainer 
           getPeople={this.getPeople}

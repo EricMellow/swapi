@@ -1,5 +1,6 @@
 import React from 'react';
 import './Crawl.css';
+import PropTypes from 'prop-types';
 
 const Crawl = (props) => {
   const {crawlData} = props;
@@ -18,6 +19,10 @@ const Crawl = (props) => {
       </section>
     </div>
   );
+};
+
+Crawl.propTypes = {
+  crawlData: PropTypes.array
 };
 
 export default Crawl;

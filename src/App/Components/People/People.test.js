@@ -1,7 +1,7 @@
 import React from 'react';
 import People from './People';
 import { mockCleanedPeople } from '../../mockPeopleData';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('People', () => {
   let wrapper;
