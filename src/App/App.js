@@ -215,7 +215,7 @@ class App extends Component {
           terrain: ":(",
           population: "No data",
           residents: 'No data'
-        })
+        });
       }
     });
     return Promise.all(residentsInfo);
@@ -223,9 +223,20 @@ class App extends Component {
 
   fetchResidents = (residents) => {
     const names = residents.map(async resident => {
-      const response = await fetch(resident);
-      const residentData = await response.json();
-      return residentData.name;
+      try {
+        const response = await fetch(resident);
+        const residentData = await response.json();
+        return residentData.name;
+      }
+      catch (error) {
+        return ({
+          name: "Oh no!",
+          climate: "Something went wrong",
+          terrain: ":(",
+          population: "No data",
+          residents: 'No data'
+        })
+      }
     });
     return Promise.all(names);
   }

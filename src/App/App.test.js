@@ -411,7 +411,7 @@ describe('App', () => {
 
     it('should return an error object when the fetch call is unsuccessful', async () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('Oopsies!')));
-      const mockPlanetData = mockPlanet.results;
+      const mockPlanetData = ["https://swapi.co/api/people/68/"];
       const expected = [{
         name: "Oh no!",
         climate: "Something went wrong",
@@ -427,7 +427,7 @@ describe('App', () => {
 
     it('should return an error object when the fetch call returns a response with a status that is not 200', async () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: jest.fn(), status: 408 }));
-      const mockPlanetData = mockPlanet.results;
+      const mockPlanetData = ["https://swapi.co/api/people/68/"];
       const expected = [{
         name: "Oh no!",
         climate: "Something went wrong",
@@ -441,4 +441,57 @@ describe('App', () => {
       expect(actual).toEqual(expected);
     });
   });
+
+  describe('fetchResidents', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<App />)
+      const mockData = mockCleanedPlanets;
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockData), status: 200 }))
+    })
+
+    it('should call fetch with the correct parameters', async () => {
+      const mockData = ["https://swapi.co/api/people/81/"];
+      const expected = "https://swapi.co/api/people/81/";
+      
+      await wrapper.instance().fetchResidents(mockData);
+
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+
+    });
+
+    it('should return an error object when the fetch call is unsuccessful', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('Oopsies!')));
+      const mockData = ["https://swapi.co/api/people/81/"];
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      const actual = await wrapper.instance().fetchResidents(mockData);
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return an error object when the fetch call returns a response with a status that is not 200', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: jest.fn(), status: 408 }));
+      const mockData = ["https://swapi.co/api/people/81/"];
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      const actual = await wrapper.instance().fetchResidents(mockData);
+
+      expect(actual).toEqual(expected);
+    });
+  });
+
 });
