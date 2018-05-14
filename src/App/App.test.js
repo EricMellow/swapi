@@ -6,6 +6,8 @@ import { mockCrawl } from './mockCrawlData.js';
 import { mockShip } from './mockStarshipData.js';
 import { mockVehicles } from './mockVehiclesData';
 import { mockPeople, mockCleanedPeople} from './mockPeopleData';
+import { mockPlanet, mockCleanedPlanets } from './mockPlanetData';
+import { peopleCleaner, planetsCleaner, filmsCleaner, shipsCleaner, vehiclesCleaner } from '../cleaners.js';
 
 describe('App', () => {
   let wrapper;
@@ -321,6 +323,67 @@ describe('App', () => {
       const actual = await wrapper.instance().getHomeworld();
 
       expect(actual).toEqual(expected);
+    })
+  });
+
+  describe('getPlanets', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<App />)
+      const mockData = mockCleanedPlanets
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockPlanet), status: 200 }))
+    })
+
+    it('should call fetch with the correct parameters and set the cardData in state', async () => {
+      wrapper.getResidents = jest.fn();
+      const expected = [{ "climate": "temperate", "id": "Alderaan0", "name": "Alderaan", "population": "2000000000", "residents": [undefined, undefined, undefined], "terrain": "grasslands, mountains", "type": "planet" }];
+      
+      await wrapper.instance().getPlanets();
+
+      expect(wrapper.state('cardData')).toEqual(expected);
+
+    });
+
+    it('should call getResidents with the correct parameters', async () => {
+      wrapper.getResidents = jest.fn();
+      const spy = jest.spyOn(wrapper.instance(), 'getResidents');
+      const expected = [{ "climate": "temperate", "id": "Alderaan0", "name": "Alderaan", "population": "2000000000", "residents": ["https://swapi.co/api/people/5/", "https://swapi.co/api/people/68/", "https://swapi.co/api/people/81/"], "terrain": "grasslands, mountains", "type": "planet" }];
+
+      await wrapper.instance().getPlanets();
+
+      expect(spy).toHaveBeenCalledWith(expected);
+
+    });
+
+    it('should return an error object when the fetch call is unsuccessful', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('Oopsies!')));
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      await wrapper.instance().getPlanets();
+
+      expect(wrapper.state('cardData')).toEqual(expected);
+    });
+
+    it('should set cardData in state to an error object when the fetch call returns a response with a status that is not 200', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: jest.fn(), status: 408 }));
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      await wrapper.instance().getPlanets();
+
+      expect(wrapper.state('cardData')).toEqual(expected);
     })
   });
 });

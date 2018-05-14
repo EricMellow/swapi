@@ -177,13 +177,29 @@ class App extends Component {
 
   getPlanets = async () => {
     this.clearData();
-    const response = await fetch('https://swapi.co/api/planets');
-    const planetData = await response.json();
-    const cleanedPlanetData = planetsCleaner(planetData);
-    const planets = await this.getResidents(cleanedPlanetData);
-    this.setState({
-      cardData: planets
-    });
+    try {
+      const response = await fetch('https://swapi.co/api/planets');
+      if (response.status !== 200) {
+        throw new Error('Status Error');
+      }
+      const planetData = await response.json();
+      const cleanedPlanetData = planetsCleaner(planetData);
+      const planets = await this.getResidents(cleanedPlanetData);
+      this.setState({
+        cardData: planets
+      });
+    }
+    catch (error) {
+      this.setState({
+        cardData: [{
+          name: "Oh no!",
+          climate: "Something went wrong",
+          terrain: ":(",
+          population: "No data",
+          residents: 'No data'
+        }]
+      });
+    }
   }
 
   getResidents = (planetData) => {
