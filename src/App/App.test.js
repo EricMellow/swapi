@@ -6,6 +6,8 @@ import { mockCrawl } from './mockCrawlData.js';
 import { mockShip } from './mockStarshipData.js';
 import { mockVehicles } from './mockVehiclesData';
 import { mockPeople, mockCleanedPeople} from './mockPeopleData';
+import { mockPlanet, mockCleanedPlanets } from './mockPlanetData';
+import { peopleCleaner, planetsCleaner, filmsCleaner, shipsCleaner, vehiclesCleaner } from '../cleaners.js';
 
 describe('App', () => {
   let wrapper;
@@ -322,5 +324,254 @@ describe('App', () => {
 
       expect(actual).toEqual(expected);
     })
+  });
+
+  describe('getPlanets', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<App />)
+      const mockData = mockCleanedPlanets
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockPlanet), status: 200 }))
+    })
+
+    it('should call fetch with the correct parameters and set the cardData in state', async () => {
+      wrapper.getResidents = jest.fn();
+      const expected = [{ "climate": "temperate", "id": "Alderaan0", "name": "Alderaan", "population": "2000000000", "residents": [undefined, undefined, undefined], "terrain": "grasslands, mountains", "type": "planet" }];
+      
+      await wrapper.instance().getPlanets();
+
+      expect(wrapper.state('cardData')).toEqual(expected);
+
+    });
+
+    it('should call getResidents with the correct parameters', async () => {
+      wrapper.getResidents = jest.fn();
+      const spy = jest.spyOn(wrapper.instance(), 'getResidents');
+      const expected = [{ "climate": "temperate", "id": "Alderaan0", "name": "Alderaan", "population": "2000000000", "residents": ["https://swapi.co/api/people/5/", "https://swapi.co/api/people/68/", "https://swapi.co/api/people/81/"], "terrain": "grasslands, mountains", "type": "planet" }];
+
+      await wrapper.instance().getPlanets();
+
+      expect(spy).toHaveBeenCalledWith(expected);
+
+    });
+
+    it('should return an error object when the fetch call is unsuccessful', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('Oopsies!')));
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      await wrapper.instance().getPlanets();
+
+      expect(wrapper.state('cardData')).toEqual(expected);
+    });
+
+    it('should set cardData in state to an error object when the fetch call returns a response with a status that is not 200', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: jest.fn(), status: 408 }));
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      await wrapper.instance().getPlanets();
+
+      expect(wrapper.state('cardData')).toEqual(expected);
+    })
+  });
+
+  describe('getResidents', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<App />)
+      const mockData = mockCleanedPlanets;
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockData), status: 200 }))
+    })
+
+    it('should call fetch with the correct parameters', async () => {
+      const mockPlanetData = mockPlanet.results;
+      const expected1 = "https://swapi.co/api/people/81/";
+      const expected2 = "https://swapi.co/api/people/68/";
+      const expected3 = "https://swapi.co/api/people/5/";
+      await wrapper.instance().getResidents(mockPlanetData);
+
+      expect(window.fetch).toHaveBeenCalledWith(expected1);
+      expect(window.fetch).toHaveBeenCalledWith(expected2);
+      expect(window.fetch).toHaveBeenCalledWith(expected3);
+
+    });
+
+    it('should return an error object when the fetch call is unsuccessful', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('Oopsies!')));
+      const mockPlanetData = ["https://swapi.co/api/people/68/"];
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      const actual = await wrapper.instance().getResidents(mockPlanetData);
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return an error object when the fetch call returns a response with a status that is not 200', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: jest.fn(), status: 408 }));
+      const mockPlanetData = ["https://swapi.co/api/people/68/"];
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      const actual = await wrapper.instance().getResidents(mockPlanetData);
+
+      expect(actual).toEqual(expected);
+    });
+  });
+
+  describe('fetchResidents', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<App />)
+      const mockData = mockCleanedPlanets;
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockData), status: 200 }))
+    })
+
+    it('should call fetch with the correct parameters', async () => {
+      const mockData = ["https://swapi.co/api/people/81/"];
+      const expected = "https://swapi.co/api/people/81/";
+      
+      await wrapper.instance().fetchResidents(mockData);
+
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+
+    });
+
+    it('should return an error object when the fetch call is unsuccessful', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('Oopsies!')));
+      const mockData = ["https://swapi.co/api/people/81/"];
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      const actual = await wrapper.instance().fetchResidents(mockData);
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return an error object when the fetch call returns a response with a status that is not 200', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: jest.fn(), status: 408 }));
+      const mockData = ["https://swapi.co/api/people/81/"];
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      const actual = await wrapper.instance().fetchResidents(mockData);
+
+      expect(actual).toEqual(expected);
+    });
+  });
+
+  describe('toggleFavorite', () => {
+    let mockCardInfo;
+    let wrapper;
+
+    beforeEach(() => {
+      mockCardInfo = {
+        id: 'Mr. Person1',
+        name: 'Mr. Person',
+        homeworld: 'World',
+        species: 'being',
+        population: 3,
+        type: 'person'
+      };
+      wrapper = shallow(<App />)
+    });
+
+    it('should add the card to favorites in state if it is not currently in the array', () => {
+      const expected = [{ 
+        "homeworld": 
+        "World", "id": 
+        "Brett Bretterson1", 
+        "name": "Brett Bretterson1", 
+        "population": 3, 
+        "species": 
+        "being", 
+        "type": 
+        "person" }, 
+        { 
+          "homeworld": 
+          "World", "id": 
+          "Mr. Person1", 
+          "name": "Mr. Person", 
+          "population": 3, 
+          "species": "being", 
+          "type": "person" 
+        }
+      ];
+
+      wrapper.setState({
+        favorites: [{
+          id: 'Brett Bretterson1',
+          name: 'Brett Bretterson1',
+          homeworld: 'World',
+          species: 'being',
+          population: 3,
+          type: 'person'
+        }]
+      });
+      wrapper.instance().toggleFavorite(mockCardInfo);
+
+      expect(wrapper.state('favorites')).toEqual(expected);
+    });
+
+    it('should not add the card to favorites in state if it is currently in the array', () => {
+      const expected = [{
+        homeworld: "World", 
+        id: "Brett Bretterson1",
+        name: "Brett Bretterson",
+        population: 3,
+        species: "being",
+        type: "person"
+      }
+      ];
+
+      wrapper.setState({
+        favorites: [{
+          id: 'Brett Bretterson1',
+          name: 'Brett Bretterson',
+          homeworld: 'World',
+          species: 'being',
+          population: 3,
+          type: 'person'
+        }]
+      });
+      
+      wrapper.instance().toggleFavorite(expected);
+
+      expect(wrapper.state('favorites')).toEqual(expected);
+    });
   });
 });

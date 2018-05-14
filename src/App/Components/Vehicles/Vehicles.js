@@ -1,5 +1,6 @@
 import React from 'react';
 import './Vehicles.css';
+import PropTypes from 'prop-types';
 
 const Vehicle = ({ cardData, toggleFavorite }) => {
   let vehicleCards = [];
@@ -24,6 +25,11 @@ const Vehicle = ({ cardData, toggleFavorite }) => {
       {vehicleCards.length > 1 && vehicleCards}
     </div>
   );
+};
+
+Vehicle.propTypes = {
+  cardData: PropTypes.array,
+  toggleFavorite: PropTypes.func
 };
 
 export default Vehicle;

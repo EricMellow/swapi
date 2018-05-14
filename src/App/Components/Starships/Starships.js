@@ -1,5 +1,6 @@
 import React from 'react';
 import './Starships.css';
+import PropTypes from 'prop-types';
 
 const Starships = ({ cardData, toggleFavorite }) => {
   let starshipCards = [];
@@ -24,6 +25,11 @@ const Starships = ({ cardData, toggleFavorite }) => {
       {starshipCards.length > 1 && starshipCards}
     </div>
   );
+};
+
+Starships.propTypes = {
+  cardData: PropTypes.array,
+  toggleFavorite: PropTypes.func
 };
 
 export default Starships;

@@ -177,28 +177,66 @@ class App extends Component {
 
   getPlanets = async () => {
     this.clearData();
-    const response = await fetch('https://swapi.co/api/planets');
-    const planetData = await response.json();
-    const cleanedPlanetData = planetsCleaner(planetData);
-    const planets = await this.getResidents(cleanedPlanetData);
-    this.setState({
-      cardData: planets
-    });
+    try {
+      const response = await fetch('https://swapi.co/api/planets');
+      if (response.status !== 200) {
+        throw new Error('Status Error');
+      }
+      const planetData = await response.json();
+      const cleanedPlanetData = planetsCleaner(planetData);
+      const planets = await this.getResidents(cleanedPlanetData);
+      this.setState({
+        cardData: planets
+      });
+    }
+    catch (error) {
+      this.setState({
+        cardData: [{
+          name: "Oh no!",
+          climate: "Something went wrong",
+          terrain: ":(",
+          population: "No data",
+          residents: 'No data'
+        }]
+      });
+    }
   }
 
   getResidents = (planetData) => {
     const residentsInfo = planetData.map(async planet => {
-      let residentNames = await this.fetchResidents(planet.residents);
-      return {...planet, residents: residentNames};
+      try {
+        let residentNames = await this.fetchResidents(planet.residents);
+        return {...planet, residents: residentNames};
+      }
+      catch (error) {
+        return ({
+          name: "Oh no!",
+          climate: "Something went wrong",
+          terrain: ":(",
+          population: "No data",
+          residents: 'No data'
+        });
+      }
     });
     return Promise.all(residentsInfo);
   }
 
   fetchResidents = (residents) => {
     const names = residents.map(async resident => {
-      const response = await fetch(resident);
-      const residentData = await response.json();
-      return residentData.name;
+      try {
+        const response = await fetch(resident);
+        const residentData = await response.json();
+        return residentData.name;
+      }
+      catch (error) {
+        return ({
+          name: "Oh no!",
+          climate: "Something went wrong",
+          terrain: ":(",
+          population: "No data",
+          residents: 'No data'
+        })
+      }
     });
     return Promise.all(names);
   }
@@ -207,7 +245,6 @@ class App extends Component {
     const findCard = this.state.favorites.map(favorite => {
       return favorite.id === cardInfo.id;
     });
-    console.log(findCard)
     if (this.state.favorites.length === 0) {
       this.setState({
         favorites: [...this.state.favorites, cardInfo]

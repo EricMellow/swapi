@@ -64,4 +64,4 @@ const mockCleanedPlanets = [
   }
 ];
 
-export { mockPlanet, mockCleanedPlanets }
+export { mockPlanet, mockCleanedPlanets };
