@@ -204,8 +204,19 @@ class App extends Component {
 
   getResidents = (planetData) => {
     const residentsInfo = planetData.map(async planet => {
-      let residentNames = await this.fetchResidents(planet.residents);
-      return {...planet, residents: residentNames};
+      try {
+        let residentNames = await this.fetchResidents(planet.residents);
+        return {...planet, residents: residentNames};
+      }
+      catch (error) {
+        return ({
+          name: "Oh no!",
+          climate: "Something went wrong",
+          terrain: ":(",
+          population: "No data",
+          residents: 'No data'
+        })
+      }
     });
     return Promise.all(residentsInfo);
   }

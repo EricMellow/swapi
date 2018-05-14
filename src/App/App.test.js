@@ -386,4 +386,59 @@ describe('App', () => {
       expect(wrapper.state('cardData')).toEqual(expected);
     })
   });
+
+  describe('getResidents', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<App />)
+      const mockData = mockCleanedPlanets;
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve(mockData), status: 200 }))
+    })
+
+    it('should call fetch with the correct parameters', async () => {
+      const mockPlanetData = mockPlanet.results;
+      const expected1 = "https://swapi.co/api/people/81/";
+      const expected2 = "https://swapi.co/api/people/68/";
+      const expected3 = "https://swapi.co/api/people/5/";
+      await wrapper.instance().getResidents(mockPlanetData);
+
+      expect(window.fetch).toHaveBeenCalledWith(expected1);
+      expect(window.fetch).toHaveBeenCalledWith(expected2);
+      expect(window.fetch).toHaveBeenCalledWith(expected3);
+
+    });
+
+    it('should return an error object when the fetch call is unsuccessful', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('Oopsies!')));
+      const mockPlanetData = mockPlanet.results;
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      const actual = await wrapper.instance().getResidents(mockPlanetData);
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return an error object when the fetch call returns a response with a status that is not 200', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: jest.fn(), status: 408 }));
+      const mockPlanetData = mockPlanet.results;
+      const expected = [{
+        name: "Oh no!",
+        climate: "Something went wrong",
+        terrain: ":(",
+        population: "No data",
+        residents: 'No data'
+      }];
+
+      const actual = await wrapper.instance().getResidents(mockPlanetData);
+
+      expect(actual).toEqual(expected);
+    });
+  });
 });
