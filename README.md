@@ -12,3 +12,5 @@ simply clone down this repo and run 'npm start'
 to ceck test coverage run 'npm test -- --coverage'
 
 ![startscreen](https://raw.githubusercontent.com/EricMellow/swapi/master/Screen%20Shot%202018-05-13%20at%2010.30.11%20PM.png)
+
+![cardscreen](https://raw.githubusercontent.com/EricMellow/swapi/master/Screen%20Shot%202018-05-13%20at%2010.30.38%20PM.png)
