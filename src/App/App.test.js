@@ -494,4 +494,84 @@ describe('App', () => {
     });
   });
 
+  describe('toggleFavorite', () => {
+    let mockCardInfo;
+    let wrapper;
+
+    beforeEach(() => {
+      mockCardInfo = {
+        id: 'Mr. Person1',
+        name: 'Mr. Person',
+        homeworld: 'World',
+        species: 'being',
+        population: 3,
+        type: 'person'
+      };
+      wrapper = shallow(<App />)
+    });
+
+    it('should add the card to favorites in state if it is not currently in the array', () => {
+      const expected = [{ 
+        "homeworld": 
+        "World", "id": 
+        "Brett Bretterson1", 
+        "name": "Brett Bretterson1", 
+        "population": 3, 
+        "species": 
+        "being", 
+        "type": 
+        "person" }, 
+        { 
+          "homeworld": 
+          "World", "id": 
+          "Mr. Person1", 
+          "name": "Mr. Person", 
+          "population": 3, 
+          "species": "being", 
+          "type": "person" 
+        }
+      ];
+
+      wrapper.setState({
+        favorites: [{
+          id: 'Brett Bretterson1',
+          name: 'Brett Bretterson1',
+          homeworld: 'World',
+          species: 'being',
+          population: 3,
+          type: 'person'
+        }]
+      });
+      wrapper.instance().toggleFavorite(mockCardInfo);
+
+      expect(wrapper.state('favorites')).toEqual(expected);
+    });
+
+    it('should not add the card to favorites in state if it is currently in the array', () => {
+      const expected = [{
+        homeworld: "World", 
+        id: "Brett Bretterson1",
+        name: "Brett Bretterson",
+        population: 3,
+        species: "being",
+        type: "person"
+      }
+      ];
+
+      wrapper.setState({
+        favorites: [{
+          id: 'Brett Bretterson1',
+          name: 'Brett Bretterson',
+          homeworld: 'World',
+          species: 'being',
+          population: 3,
+          type: 'person'
+        }]
+      });
+      
+      wrapper.instance().toggleFavorite(expected);
+
+      expect(wrapper.state('favorites')).toEqual(expected);
+    });
+  });
 });

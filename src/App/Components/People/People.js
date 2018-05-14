@@ -1,5 +1,6 @@
 import React from 'react';
 import './People.css';
+import PropTypes from 'prop-types';
 
 const People = ({ cardData, toggleFavorite }) => {
   let peopleCards = [];
@@ -23,6 +24,12 @@ const People = ({ cardData, toggleFavorite }) => {
       {peopleCards.length > 1 && peopleCards}
     </div>
   );
+};
+
+
+People.propTypes = {
+  cardData: PropTypes.array,
+  toggleFavorite: PropTypes.func
 };
 
 export default People;

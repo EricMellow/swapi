@@ -1,5 +1,6 @@
 import React from 'react';
 import './Planets.css';
+import PropTypes from 'prop-types';
 
 const Planets = ({ cardData, toggleFavorite}) => {
   let planetCards = [];
@@ -25,6 +26,11 @@ const Planets = ({ cardData, toggleFavorite}) => {
       {planetCards.length > 1 && planetCards}
     </div>
   );
+};
+
+Planets.propTypes = {
+  cardData: PropTypes.array,
+  toggleFavorite: PropTypes.func
 };
 
 export default Planets;
